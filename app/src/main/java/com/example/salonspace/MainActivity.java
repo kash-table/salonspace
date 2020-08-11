@@ -8,9 +8,22 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // delete Test
-sex // insert Test
+
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+        // Merge Test
+
     }
 }
