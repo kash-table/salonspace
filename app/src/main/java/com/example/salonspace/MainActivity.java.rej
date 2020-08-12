@@ -1,0 +1,9 @@
+diff a/app/src/main/java/com/example/salonspace/MainActivity.java b/app/src/main/java/com/example/salonspace/MainActivity.java	(rejected hunks)
+@@ -10,7 +10,6 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+-
+         //testing
+         //testing2
+         // Junho Branch Test
