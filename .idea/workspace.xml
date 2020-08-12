@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a5b1f2-da21-4339-8614-790cf1807b55" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,5 +112,11 @@
       <updated>1597128853507</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2312" y="400" key="com.intellij.ide.util.TipDialog" timestamp="1597212936745">
+      <screen x="1920" y="-5" width="1920" height="1040" />
+    </state>
+    <state x="2312" y="400" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-5.1920.1040@1920.-5.1920.1040" timestamp="1597212936745" />
   </component>
 </project>
