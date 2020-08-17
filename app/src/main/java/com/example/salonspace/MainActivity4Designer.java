@@ -13,7 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity4Designer extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentDesigner fragmentDesigner = new FragmentDesigner();
-
+    private FragmentMypage fragmentMypage = new FragmentMypage();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +21,7 @@ public class MainActivity4Designer extends AppCompatActivity {
 
         // Defalut Main Fragment
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
+        transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -29,15 +29,16 @@ public class MainActivity4Designer extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // Change Fragment
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
+                //transaction.replace(R.id.frameLayout, null).commitAllowingStateLoss();
                 switch(item.getItemId()){
                     case R.id.Item1:
                         transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
                         break;
                     case R.id.Item2:
-                        transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
                         break;
                 }
-                return false;
+                return true;
             }
         });
 
