@@ -22,7 +22,7 @@ public class SplahActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent= new Intent(getApplicationContext(), MainActivity4Designer.class);
+                Intent intent= new Intent(getApplicationContext(), MainActivity_custom.class);
                 startActivity(intent);  //juno 메인화면을 띄운다.
                 finish();   //현재 액티비티 종료
             }
