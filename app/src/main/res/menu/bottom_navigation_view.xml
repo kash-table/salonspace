@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/Item1"
+        android:icon="@drawable/home"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="Search" />
+
+        android:title="홈" />
     <item
         android:id="@+id/Item2"
+        android:icon="@drawable/icon_hs"
         android:enabled="true"
-        android:icon="@android:drawable/ic_secure"
-        android:title="Camera" />
+        app:showAsAction="always"
+        android:title="미용실" />
     <item
         android:id="@+id/Item3"
+        android:icon="@drawable/icon_reservation"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_call"
-        android:title="Call" />
+
+        android:title="예약" />
     <item
         android:id="@+id/Item4"
+        android:icon="@drawable/mypage"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_call"
-        android:title="Menu" />
-    <item
-        android:id="@+id/Item5"
-        android:enabled="true"
-        android:icon="@android:drawable/ic_secure"
-        android:title="My page" />
+
+        android:title="마이" />
 </menu>

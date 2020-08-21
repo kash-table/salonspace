@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/Item1"
-        android:icon="@android:drawable/checkbox_off_background"
+        android:icon="@drawable/home"
         android:enabled="true"
 
-        android:title="Home" />
+        android:title="홈" />
     <item
         android:id="@+id/Item2"
-        android:icon="@android:drawable/ic_menu_share"
+        android:icon="@drawable/icon_hs"
         android:enabled="true"
         app:showAsAction="always"
-        android:title="Public" />
+        android:title="미용실" />
     <item
         android:id="@+id/Item3"
-        android:icon="@android:drawable/ic_menu_call"
+        android:icon="@drawable/icon_reservation"
         android:enabled="true"
 
-        android:title="reservation" />
+        android:title="예약" />
     <item
         android:id="@+id/Item4"
-        android:icon="@android:drawable/ic_menu_info_details"
+        android:icon="@drawable/mypage"
         android:enabled="true"
 
-        android:title="My page" />
+        android:title="마이" />
 </menu>
