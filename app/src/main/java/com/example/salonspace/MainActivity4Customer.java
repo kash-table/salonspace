@@ -19,17 +19,21 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity4Customer extends AppCompatActivity {
+public class MainActivity4Customer extends BaseCustomBarActivity {
 
 
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentDesigner fragmentDesigner = new FragmentDesigner();
     @Override
+    protected void Init() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity4_customer);
-
+        // SetActionBarLayout(R.layout.actionbar_default);
         // Defalut Main Fragment
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         //transaction.replace(R.id.frameLayout, fragment_home).commitAllowingStateLoss();
