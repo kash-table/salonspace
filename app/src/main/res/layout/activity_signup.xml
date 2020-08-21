@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignupActivity" >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbtn_ctm"
+            android:layout_width="360dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_clicked"
+            android:buttonTint="#FF9800"
+            android:checked="true"
+            android:text="@string/signup_ctm" />
+
+        <RadioButton
+            android:id="@+id/rbtn_dsg"
+            android:layout_width="360dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_clicked"
+            android:text="@string/signup_dsg" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="17dp"
+        android:text="이름"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="이름(실명)을 입력해주세요"
+        android:textColor="#A8A7A7" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="이메일"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="id@salong.com"
+        android:textColor="#A8A7A7" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="비밀번호"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="영문+숫자 조합 8자리 이상 입력해주세요"
+        android:textColor="#A8A7A7" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="비밀번호"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="비밀번호를 한번 더 입력해주세요"
+        android:textColor="#A8A7A7" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/signup_policy"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#FF9800"
+            android:text="Button"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</LinearLayout>
