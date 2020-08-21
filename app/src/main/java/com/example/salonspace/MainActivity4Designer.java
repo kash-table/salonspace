@@ -38,6 +38,7 @@ public class MainActivity4Designer extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main_custom);
+        setContentView(R.layout.activity_main_designer);
 
 
         pager=(ViewPager)findViewById(R.id.pager);

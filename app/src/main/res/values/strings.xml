@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SalonSpace</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="signup_policy"><font color="#FF9800"><u>이용약관</u></font> 및 <font color="#FF9800"><u>개인정보취급방침</u></font>에 동의합니다.(필수)</string>
+    <string name="signup_ctm"><b><font size="20">고객으로 가입</font></b><font size="13">\n\n디자이너님에게 도움을 받고 싶어요</font></string>
+    <string name="signup_dsg"><b><font size="20">디자이너로 가입</font></b><font size="13">\n\n서비스가 필요한 고객님을 만나고 싶어요</font></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
