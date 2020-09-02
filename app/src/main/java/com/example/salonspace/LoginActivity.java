@@ -11,11 +11,17 @@ import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_login, btn_signup;
+    Button findID;
+    Button findPW;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        findID=findViewById(R.id.button2);
+        findPW=findViewById(R.id.button);
+
+
 
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -43,5 +49,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void btnID(View v){
+        Intent intent=new Intent(this,FindID.class);
+        startActivity(intent);
+    }
+    public void btnPW(View v){
+        Intent intent=new Intent(this,FindPW.class);
+        startActivity(intent);
     }
 }

@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/Item1"
-        android:icon="@drawable/home"
+        android:icon="@drawable/home2"
         android:enabled="true"
 
         android:title="홈" />
     <item
         android:id="@+id/Item2"
-        android:icon="@drawable/icon_hs"
+        android:icon="@drawable/salon"
         android:enabled="true"
         app:showAsAction="always"
         android:title="미용실" />
     <item
         android:id="@+id/Item3"
-        android:icon="@drawable/icon_reservation"
+        android:icon="@drawable/calendar"
         android:enabled="true"
 
         android:title="예약" />
     <item
         android:id="@+id/Item4"
-        android:icon="@drawable/mypage"
+        android:icon="@drawable/user"
         android:enabled="true"
 
         android:title="마이" />
