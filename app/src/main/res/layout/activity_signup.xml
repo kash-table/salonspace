@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignupActivity" >
+    tools:context=".SignupActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,176 +15,234 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
 
-        android:layout_marginRight="20dp">
+                android:layout_weight="1">
 
-        <RadioButton
-            android:id="@+id/rbtn_ctm"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/button_clicked"
-            android:buttonTint="#FF9800"
-            android:checked="true"
-            android:fontFamily="@font/nsrb"
-            android:text="@string/signup_ctm"
-            android:padding="10dp"/>
+                <RadioButton
+                    android:id="@+id/rbtn_ctm"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/button_clicked"
+                    android:buttonTint="#FF9800"
+                    android:checked="true"
+                    android:fontFamily="@font/nsrb"
+                    android:padding="10dp"
+                    android:text="@string/signup_ctm" />
 
-        <RadioButton
-            android:id="@+id/rbtn_dsg"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:background="@drawable/button_clicked"
-            android:fontFamily="@font/nsrb"
-            android:text="@string/signup_dsg"
-            android:padding="10dp"/>
-    </RadioGroup>
+                <RadioButton
+                    android:id="@+id/rbtn_dsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/button_clicked"
+                    android:fontFamily="@font/nsrb"
+                    android:padding="10dp"
+                    android:text="@string/signup_dsg" />
+            </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
 
-        android:layout_gravity="center"
-        android:layout_marginTop="17dp"
-        android:fontFamily="@font/nsrb"
-        android:text="이름"
-        android:textColor="#000000" />
+                android:layout_marginTop="17dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/nsrb"
+                android:text="이름"
+                android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:textSize="12dp"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/nsrb"
-        android:hint="이름(실명)을 입력해주세요"
-        android:textColor="#000000" />
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:fontFamily="@font/nsrb"
+                android:hint="이름(실명)을 입력해주세요"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/nsrb"
-        android:text="이메일"
-        android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/nsrb"
+                android:text="이메일"
+                android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:textSize="12dp"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/nsrb"
-        android:hint="id@salong.com"
-        android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/editTextTextPersonName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:fontFamily="@font/nsrb"
+                android:hint="id@salong.com"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/nsrb"
-        android:text="비밀번호"
-        android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/nsrb"
+                android:text="비밀번호"
+                android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:textSize="12dp"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/nsrb"
-        android:hint="영문+숫자 조합 8자리 이상 입력해주세요"
-        android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/editTextTextPersonName3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:fontFamily="@font/nsrb"
+                android:hint="영문+숫자 조합 8자리 이상 입력해주세요"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/nsrb"
-        android:text="비밀번호"
-        android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/nsrb"
+                android:text="비밀번호 확인"
+                android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:textSize="12dp"
-        android:fontFamily="@font/nsrb"
-        android:inputType="textPersonName"
-        android:hint="비밀번호를 한번 더 입력해주세요"
-        android:textColor="#000000" />
+            <EditText
+                android:id="@+id/editTextTextPersonName4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:fontFamily="@font/nsrb"
+                android:hint="비밀번호를 한번 더 입력해주세요"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textSize="12dp" />
 
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/nsrb"
-        android:textSize="10dp"
-        android:text="@string/signup_policy"
-        android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nsrb"
+                android:text="연락처"
+                android:textColor="#000000" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_signup"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#FF9800"
-            android:layout_margin="24px"
-            android:text="회원가입"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/editTextTextPersonName6"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:fontFamily="@font/nsrb"
+                    android:hint="010-0000-0000"
+                    android:inputType="textPersonName"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:text="인증번호 받기" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="140dp"
+                android:layout_height="25dp"
+                android:layout_gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/black_round_border"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="인증번호 8자리 숫자 입력"
+                android:inputType="number"
+                android:padding="6dp"
+                android:textSize="11sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/nsrb"
+                android:text="@string/signup_policy"
+                android:textColor="#000000"
+                android:textSize="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="24px"
+                    android:background="#FF9800"
+                    android:text="회원가입"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
