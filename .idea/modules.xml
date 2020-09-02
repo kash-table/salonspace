@@ -3,11 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SalonSpace.iml" filepath="$PROJECT_DIR$/.idea/modules/SalonSpace.iml" group="SalonSpace" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SalonSpace-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SalonSpace-app.iml" group="SalonSpace/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SalonSpace/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/salon-SalonSpace.iml" filepath="$PROJECT_DIR$/.idea/modules/salon-SalonSpace.iml" group="SalonSpace" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/salonspace-SalonSpace.iml" filepath="$PROJECT_DIR$/.idea/modules/salonspace-SalonSpace.iml" group="SalonSpace" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test-SalonSpace.iml" filepath="$PROJECT_DIR$/.idea/modules/test-SalonSpace.iml" group="SalonSpace" />
     </modules>
   </component>
 </project>
