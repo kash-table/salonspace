@@ -10,21 +10,19 @@
 
   <ImageView
       android:id="@+id/imageView2"
-      android:layout_width="346dp"
-      android:layout_height="108dp"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
       android:layout_gravity="center"
       android:layout_marginTop="40dp"
       app:srcCompat="@drawable/logo_orange" />
 
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
+        android:layout_gravity="center"
         android:background="@drawable/loginbutton"
         android:ems="10"
         android:inputType="textEmailAddress"
@@ -32,17 +30,14 @@
         android:hint="아이디"
         android:fontFamily="@font/nsrb"
         android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/editTextTextPassword3"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_marginTop="5dp"
+        android:layout_gravity="center"
         android:background="@drawable/loginbutton"
         android:ems="10"
         android:paddingLeft="24px"
@@ -51,36 +46,28 @@
         android:inputType="textPassword"
         android:textColor="#000000"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+     />
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_margin="20dp"
         android:background="@drawable/loginbutton1"
         android:fontFamily="@font/nsrb"
         android:text="살롱스페이스 로그인"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+        android:layout_gravity="center"
+     />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="5dp"
+
         android:text="로그인 상태 유지"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        android:textSize="11sp" />
 
     <Button
         android:id="@+id/button"
@@ -155,6 +142,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.121" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

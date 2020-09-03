@@ -7,18 +7,15 @@
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
-    <TextView
 
-        android:id="@+id/textView8"
-        android:drawableLeft="@drawable/back"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:drawableRight="@drawable/exit"
-        android:drawablePadding="15px"
-
-        android:gravity="center"
-        />
+        android:layout_weight="1"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <ScrollView
         android:layout_width="match_parent"
