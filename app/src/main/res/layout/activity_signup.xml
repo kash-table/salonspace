@@ -7,6 +7,19 @@
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
+    <TextView
+
+        android:id="@+id/textView8"
+        android:drawableLeft="@drawable/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:drawableRight="@drawable/exit"
+        android:drawablePadding="15px"
+
+        android:gravity="center"
+        />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -239,9 +252,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_margin="24px"
-                    android:background="#FF9800"
+                    android:background="@drawable/orange_round_border"
+                    android:textStyle="bold"
                     android:text="회원가입"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FF9800" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
