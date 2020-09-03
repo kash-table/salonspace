@@ -24,6 +24,7 @@ public class SplahActivity extends AppCompatActivity {
                 getWindow().setStatusBarColor(Color.parseColor("#444444"));
             }
         }
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splah);
         startLoading();
     }

@@ -16,7 +16,9 @@
         <activity android:name=".MainActivity_custom" />
         <activity android:name=".MainActivity4Customer" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SplahActivity">
+        <activity
+            android:name=".SplahActivity"
+            android:theme="@style/AppFullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
