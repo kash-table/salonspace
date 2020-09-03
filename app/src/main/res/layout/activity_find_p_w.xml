@@ -112,6 +112,7 @@
         android:layout_gravity="center"
         android:background="@drawable/orange_round_border"
         android:text="확인"
+        android:onClick="mOnPopupClick"
         android:textColor="#FF9800"
         android:textSize="14dp"
         android:textStyle="bold"

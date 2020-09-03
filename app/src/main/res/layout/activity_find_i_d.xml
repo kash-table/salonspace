@@ -88,12 +88,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_margin="32dp"
         android:layout_gravity="center"
         android:background="@drawable/orange_round_border"
+        android:onClick="mOnPopupClick"
         android:text="확인"
         android:textColor="#FF9800"
         android:textSize="14dp"
