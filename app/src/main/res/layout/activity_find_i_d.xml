@@ -7,26 +7,29 @@
     android:orientation="vertical"
     tools:context=".FindID">
 
-        <TextView
+    <TextView
 
             android:id="@+id/textView8"
             android:drawableLeft="@drawable/back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="아이디 찾기"
+            android:textSize="18dp"
             android:drawableRight="@drawable/exit"
             android:drawablePadding="15px"
 
             android:gravity="center"
-            />
+            android:layout_margin="8dp"
+    />
 
     <TextView
         android:id="@+id/textView9"
+        android:textColor="#000000"
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="44dp"
         android:layout_marginBottom="8dp"
-        android:textSize="7pt"
+        android:textSize="18dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textStyle="bold"
@@ -34,18 +37,19 @@
 
     <TextView
         android:padding="5dp"
-        android:textSize="5pt"
+        android:textSize="12dp"
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
         android:gravity="center"
         android:lineSpacingExtra="8px"
         android:text="회원가입시 입력한 아이디를 잊으셨나요?\n빈칸에 해당하는 정보를 입력하시면\n가입하신 아이디를 바로 확인하실 수 있습니다." />
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginHorizontal="32dp"
+        android:textSize="16dp"
+        android:textColor="#000000"
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,48 +57,47 @@
         />
 
     <EditText
-        android:layout_marginLeft="10dp"
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="5pt"
-
-        android:padding="5dp"
+        android:textSize="12dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="이름(실명)을 입력해주세요." />
 
     <TextView
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp"
         android:id="@+id/textView13"
+        android:textColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="연락처" />
 
     <EditText
-        android:layout_marginLeft="10dp"
         android:id="@+id/editTextTextPersonName6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="5pt"
-        android:padding="5dp"
+        android:textSize="12dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="010-0000-0000" />
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
     <Button
         android:id="@+id/btn_signup"
-        android:layout_marginTop="150dp"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="32dp"
         android:layout_gravity="center"
         android:background="@drawable/orange_round_border"
         android:text="확인"
         android:textColor="#FF9800"
-        android:textSize="12sp"
+        android:textSize="14dp"
         android:textStyle="bold"
 
         />
-
 </LinearLayout>
