@@ -21,14 +21,31 @@
             android:orientation="vertical" >
 
 
-            <ImageView
-                android:id="@+id/imgView5"
-                android:layout_width="200px"
-                android:layout_height="100px"
-                android:layout_margin="32px"
-                android:layout_marginLeft="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/logo_orange_2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imgView5"
+                    android:layout_width="200px"
+                    android:layout_height="100px"
+                    android:layout_margin="32px"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/logo_orange_2" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="48px"
+                    android:drawableLeft="@drawable/icon_logout_small"
+                    android:fontFamily="@font/nsrb"
+                    android:gravity="center"
+                    android:textSize="12dp"
+                    android:text="  로그아웃"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,18 +56,10 @@
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textSize="18dp"
-<<<<<<< HEAD
+
                 android:fontFamily="@font/nsrb"
                 android:text="이준호님 반가워요.\n첫 고객 시술을 진행해봐요.">
 
-
-=======
-                android:lineSpacingExtra="20px"
-                android:fontFamily="@font/nsrb"
-                android:text="이준호님 반가워요.\n첫 손님을 받아보세요!">
-
-
->>>>>>> master
             </TextView>
 
             <LinearLayout
@@ -253,11 +262,7 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:fontFamily="@font/nsrb"
-<<<<<<< HEAD
                 android:text="7월 디자이너스 PICK"/>
-=======
-                android:text="7월 디자이너스픽"/>
->>>>>>> master
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
@@ -268,7 +273,15 @@
             </androidx.viewpager.widget.ViewPager>
         </LinearLayout>
     </ScrollView>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:padding="8dp"
+        android:textSize="12dp"
+        android:textColor="#FFFFFF"
+        android:text="첫 시술을 진행해보세요. 많은 고객님들이 기다리고 있습니다!"
+        android:background="#FE5722"
+        />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
@@ -283,10 +296,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:menu="@menu/bottom_navigation_view2" />
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
-
 </LinearLayout>

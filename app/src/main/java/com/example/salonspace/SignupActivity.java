@@ -61,6 +61,8 @@ public class SignupActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 if(rbtn_ctm.isChecked()){
                     intent.putExtra("usertype", 0);
@@ -68,7 +70,13 @@ public class SignupActivity extends AppCompatActivity {
                     intent.putExtra("usertype", 1);
                 }
                 startActivity(intent);
+
+                //데이터 담아서 팝업(액티비티) 호출
+                intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("data", "Salon Space에 오신 것을 환영합니다.");
+                startActivityForResult(intent, 1);
             }
         });
     }
+
 }

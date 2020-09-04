@@ -20,16 +20,31 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgView5"
+            android:layout_width="200px"
+            android:layout_height="100px"
+            android:layout_margin="32px"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo_orange_2" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="48px"
+            android:drawableLeft="@drawable/icon_logout_small"
+            android:fontFamily="@font/nsrb"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:text="  로그아웃"/>
 
-    <ImageView
-        android:id="@+id/imgView5"
-        android:layout_width="200px"
-        android:layout_height="100px"
-        android:layout_margin="32px"
-        android:layout_marginLeft="20dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/logo_orange_2" />
-
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,15 +73,14 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_corner"
             android:drawableRight ="@drawable/icon_find_small"
-            android:layout_height="110px"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="16px"
             android:layout_marginRight="10dp"
             android:maxLines="1"
-            android:textSize="5pt"
+            android:textSize="12dp"
             android:hint="어떤 디자이너를 찾으시나요?"
             android:padding="10dp"
-
             android:textColor="#000000"
             android:textColorHint="#A0A0A0" />
     </LinearLayout>
@@ -281,6 +295,15 @@
         </androidx.viewpager.widget.ViewPager>
         </LinearLayout>
     </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:padding="8dp"
+        android:textSize="12dp"
+        android:textColor="#FFFFFF"
+        android:text="첫 시술을 진행해보세요! 최대 50%의 할인 혜텍이 주어집니다!"
+        android:background="#FE5722"
+    />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigationView"

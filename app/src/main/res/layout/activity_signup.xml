@@ -250,6 +250,7 @@
                     android:layout_height="60dp"
                     android:layout_margin="24px"
                     android:background="@drawable/orange_round_border"
+                    android:onClick="mOnPopupClick"
                     android:textStyle="bold"
                     android:text="회원가입"
                     android:textColor="#FF9800" />
