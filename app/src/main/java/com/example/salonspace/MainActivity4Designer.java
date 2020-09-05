@@ -1,13 +1,17 @@
 package com.example.salonspace;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,12 +27,29 @@ import java.util.ArrayList;
 public class MainActivity4Designer extends AppCompatActivity {
     ViewPager pager;
     ArrayList<View> viewlist=new ArrayList<View>();
-
+    TextView logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
+
+//  DB저장 잘됫나 확인 코드 ! ************************
+        //DB 오픈
+        DBHelper helper=new DBHelper(this);
+        SQLiteDatabase db=helper.getReadableDatabase();
+        String sql="select * from Login";
+        Cursor c=db.rawQuery(sql,null);
+
+        while(c.moveToNext()){
+            // 가져올 컬럼의 인덱스 번호 추출
+            int index=c.getColumnIndex("ID");
+            int index2=c.getColumnIndex("PW");
+            String id=c.getString(index);
+            String pw=c.getString(index2);
+            Log.d("test",id+pw);
+        }
+// ******************************************
         View view = getWindow().getDecorView();
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if (view != null) {
@@ -74,5 +95,12 @@ public class MainActivity4Designer extends AppCompatActivity {
             pager.removeView((View)object);
         }
 
+    }
+    // 로그아웃시 db 정보 없애기 !
+    public void btnlogout(View v){
+        DBHelper helper=new DBHelper(this);
+        SQLiteDatabase db=helper.getReadableDatabase();
+        String sql="delete from Login";
+        db.execSQL(sql);
     }
 }
