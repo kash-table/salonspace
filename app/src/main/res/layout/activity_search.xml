@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/back"
+                    />
+                <EditText
+                    android:id="@+id/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner"
+                    android:drawableRight ="@drawable/icon_find_small"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:maxLines="1"
+                    android:textSize="16sp"
+                    android:hint="어떤 디자이너를 찾으시나요?"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:textColorHint="#A0A0A0" />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:text="최근 검색"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/nsrb"
+                android:text="전체 삭제"/>
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:text="추천 서비스"/>
+            <LinearLayout
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:onClick="search">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_cut"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="커트"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_pum"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="펌"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_color"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="염색"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_magic"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="매직"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_nail"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="네일"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:paddingBottom="4dp"
+                        android:src="@drawable/search_tato"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        android:text="타투"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:text="나에게 맞는 헤어는 무엇일까요?"/>
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+            </androidx.viewpager.widget.ViewPager>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+
+
+        android:background="?android:attr/windowBackground"
+        android:gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:menu="@menu/bottom_navigation_view2" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <!-- 스크롤뷰 적용 (1개의 Object만 ScrollView에 적용 가능.) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 디자이너 프로필 -->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginBottom="24dp">
+            </androidx.viewpager.widget.ViewPager>
+
+            <!-- 한줄소개 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="한줄 소개"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="노민도 디자이너의 화려한 펌의 세계로 초대합니다."
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- 기본 정보 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="기본 정보"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"/>
+
+            <!-- 아래 부분을 ListView 로 커스텀해야함. -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="- 펌신펌왕"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="24dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="- 베이비펌"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="24dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="- 연락 가능 시간 06:00 ~ 12:00"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="24dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="- 39800 원"
+                android:textSize="16sp"
+                android:fontFamily="@font/nsrb"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- 이미지 슬라이더-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="디자이너의 다른 작품"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"/>
+            <!-- 이미지 슬라이더 2번째 넣어야함.-->
+                <!-- 이미지 슬라이더 대체용 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="16dp">
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+
+                    android:layout_margin="4dp"
+                    android:text="문의"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:background="@drawable/rounded_corner"
+                    />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:layout_margin="4dp"
+
+                    android:text="예약하기"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:background="@drawable/orange_back_round_border"
+
+                    android:onClick="onReserveClick"
+                    />
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="4dp"
+
+                    android:text="♡"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:background="@drawable/rounded_corner"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -81,6 +81,7 @@
             android:textSize="12dp"
             android:hint="어떤 디자이너를 찾으시나요?"
             android:padding="10dp"
+            android:onClick="searchOnClick"
             android:textColor="#000000"
             android:textColorHint="#A0A0A0" />
     </LinearLayout>

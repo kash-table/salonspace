@@ -13,6 +13,12 @@
         <activity android:name=".FindID" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchResultActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".ReserveActivity" />
+        <activity android:name=".ReviewActivity" />
         <activity android:name=".MainActivity_custom" />
         <activity android:name=".MainActivity4Customer" />
         <activity android:name=".MainActivity" />

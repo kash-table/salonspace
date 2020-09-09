@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <!-- 스크롤뷰 적용 (1개의 Object만 ScrollView에 적용 가능.) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 상단 평점 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="18dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="노민도 디자이너의 베이비 펌"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/nsrb"
+                    android:textColor="#000000"
+                    />
+                <!-- 평점 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:numStars="5"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:rating="4"
+                        android:stepSize="1"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="4.0"
+                        android:layout_marginLeft="4dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#000000"
+                        />
+                </LinearLayout>
+                <!-- 실선 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#454545"
+                    android:layout_marginVertical="8dp"/>
+                <!-- 리뷰 및 댓글 갯수 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최근 리뷰 252"
+                        android:layout_marginHorizontal="4dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#454545"
+                        />
+                    <!-- 실선 -->
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#454545"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="최근 디자이너 댓글 251"
+                        android:layout_marginLeft="4dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/nsrb"
+                        android:textColor="#454545"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 날짜 선택-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="날짜 선택"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- 시간 선택-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="시간 선택"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- 시술 전 체크 리스트-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="시술 전 체크 리스트"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최근 3개월 동안 염색"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최근 3개월 동안 파마"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="기타"/>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="11dp"
+                        android:background="@drawable/rounded_corner"
+                        android:hint="ex) 두피 문신이 있습니다."/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- 시술 가격 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="시술 가격"
+                android:textSize="18sp"
+                android:fontFamily="@font/nsrb"
+                android:textColor="#000000"
+
+                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"/>
+            <!-- 이부분 ListView로 구현 필요 / 시술 가격 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="펌신펌왕 베이비펌"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nsrb"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="32dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="39,800 원"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nsrb"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="32dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginHorizontal="18dp"
+                android:background="#454545"/>
+            <!-- 총 결제 금액 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="총 결제 금액"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/nsrb"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="32dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="39,800 원"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/nsrb"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="32dp"/>
+            </LinearLayout>
+            <!-- 결제하기 버튼 -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="16dp"
+
+                android:text="결제하기"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:background="@drawable/orange_back_round_border"
+
+                android:onClick="onReserveClick"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
