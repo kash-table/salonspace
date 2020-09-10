@@ -94,6 +94,16 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    //아이디찾기 비번찾기
+    public void btnID(View v){
+        Intent intent = new Intent(getApplicationContext(),FindID.class);
+        startActivity(intent);
+    }
+    public void btnPW(View v){
+        Intent intent = new Intent(getApplicationContext(),FindPW.class);
+        startActivity(intent);
+    }
+    //db연동
     class InsertData extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
