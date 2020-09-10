@@ -8,6 +8,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -59,8 +60,6 @@ public class MainActivity4Customer extends BaseCustomBarActivity {
                 return true;
             }
         });
-
-
 
     }
 

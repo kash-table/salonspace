@@ -6,6 +6,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -74,5 +75,18 @@ public class MainActivity_custom extends AppCompatActivity {
             pager.removeView((View)object);
         }
 
+    }
+    public void btnlogout2(View v){
+        DBHelper helper=new DBHelper(this);
+        SQLiteDatabase db=helper.getReadableDatabase();
+        String sql="delete from Login";
+        db.execSQL(sql);
+        db.close();
+        Intent intent=new Intent(this,LoginActivity.class);
+        startActivity(intent);
+
+    }
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

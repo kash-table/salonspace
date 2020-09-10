@@ -74,7 +74,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -86,7 +86,6 @@
                 android:inputType="textPersonName"
                 android:textColor="#000000"
                 android:textSize="12dp" />
-
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
@@ -98,10 +97,14 @@
                 android:fontFamily="@font/nsrb"
                 android:text="이메일"
                 android:textColor="#000000" />
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <EditText
-                android:id="@+id/editTextTextPersonName2"
-                android:layout_width="match_parent"
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_weight="6"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
@@ -112,7 +115,15 @@
                 android:inputType="textPersonName"
                 android:textColor="#000000"
                 android:textSize="12dp" />
-
+            <Button
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="중복확인"
+                android:layout_marginRight="20dp"
+                android:textSize="5pt"></Button>
+        </LinearLayout>
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
@@ -126,7 +137,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -152,7 +163,7 @@
                 android:textColor="#000000" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/pwd2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -185,7 +196,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName6"
+                    android:id="@+id/contactnumber"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

@@ -41,6 +41,8 @@
             android:drawableLeft="@drawable/icon_logout_small"
             android:fontFamily="@font/nsrb"
             android:gravity="center"
+            android:onClick="btnlogout2"
+            android:clickable="true"
             android:textSize="12dp"
             android:text="  로그아웃"/>
 
