@@ -28,7 +28,7 @@ public class FindPW extends AppCompatActivity {
         email=findViewById(R.id.email3);
         contact=findViewById(R.id.contact3);
     }
-    public void mOnPopupClick(View v){
+    public void mOnPopupClickk(View v){
 
         String name_value=name.getText().toString();
         String email_value=email.getText().toString();
@@ -37,6 +37,14 @@ public class FindPW extends AppCompatActivity {
         InsertData insertdata = new InsertData();
         insertdata.execute("http://13.125.176.39/findPWD.php",name_value,email_value,contact_value);
 
+    }
+    public void btn5(View v){
+        String name_value=name.getText().toString();
+        String email_value=email.getText().toString();
+        String contact_value=contact.getText().toString();
+
+        InsertData insertdata = new InsertData();
+        insertdata.execute("http://13.125.176.39/findPWD.php",name_value,email_value,contact_value);
 
     }
 
@@ -50,7 +58,7 @@ public class FindPW extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            s=s.replace("\t","");
             if(s.equals("error")){
                 //데이터 담아서 팝업(액티비티) 호출
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
@@ -100,14 +108,12 @@ public class FindPW extends AppCompatActivity {
                 InputStreamReader inputreader = new InputStreamReader(inputstream, "UTF-8");
                 BufferedReader bufferedreader = new BufferedReader(inputreader);
 
-                StringBuilder sb = new StringBuilder();
+                StringBuffer sb = new StringBuffer();
                 String line = null;
-
                 int a=1;
                 while((line = bufferedreader.readLine())!=null){
                     sb.append(line);
                     Log.d("testsb",sb.toString());
-
                     Log.d("testline",line);
                     a++;
                 }

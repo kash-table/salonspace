@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FindID">
+    tools:context=".FindPW">
 
     <TextView
 
@@ -112,7 +112,7 @@
         android:layout_gravity="center"
         android:background="@drawable/orange_round_border"
         android:text="확인"
-        android:onClick="mOnPopupClick"
+        android:onClick="mOnPopupClickk"
         android:textColor="#FF9800"
         android:textSize="14dp"
         android:textStyle="bold"
