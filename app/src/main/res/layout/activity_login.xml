@@ -67,11 +67,13 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <CheckBox
-        android:layout_marginLeft="30dp"
+        android:id="@+id/checkbox_login"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
         android:fontFamily="@font/nsrb"
         android:text="로그인 상태 유지"
         android:textSize="12dp" />

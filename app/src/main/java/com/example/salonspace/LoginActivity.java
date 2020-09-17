@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import java.io.BufferedReader;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     Button findID;
     Button findPW;
     EditText ID,PW;
-
+    CheckBox login_checkbox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -33,6 +34,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         findID=findViewById(R.id.button2);
         findPW=findViewById(R.id.button);
+        //자동로그인 주소값
+        login_checkbox=findViewById(R.id.checkbox_login);
+        //default값으로 자동로그인 체크
+        login_checkbox.setChecked(true);
+
         // 아이디 비밀번호 edittext 값저장
         ID=findViewById(R.id.editTextTextEmailAddress2);
         PW=findViewById(R.id.editTextTextPassword3);

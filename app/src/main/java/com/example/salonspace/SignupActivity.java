@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -30,12 +31,18 @@ import android.util.Log;
 public class SignupActivity extends AppCompatActivity {
     RadioButton rbtn_ctm, rbtn_dsg;
     Button btn_signup,btn_check;
+    CheckBox agree;
     //Toolbar toolbar;
-    EditText name_edit,pwd_edit,email_edit,contact_edit;
+    EditText name_edit,pwd_edit,pwd_edit2,email_edit,contact_edit;
     //회원정보
-    String usertp,name,email,pwd,contact;
+    String usertp,name,email,pwd,pwd2,contact;
     String idcheck;
-
+    // 중복확인 체크했는지
+    int email_check=0;
+    // null값이 있는지
+    int check_null=0;
+    // 제대로 입력을 했는지
+    int confirm_input=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -45,10 +52,11 @@ public class SignupActivity extends AppCompatActivity {
         //editText 주소값
         name_edit=findViewById(R.id.name);
         pwd_edit=findViewById(R.id.pwd);
+        pwd_edit2=findViewById(R.id.pwd2);
         email_edit=findViewById(R.id.email);
         contact_edit=findViewById(R.id.contactnumber);
-
-
+        //체크박스 주소값
+        agree=findViewById(R.id.checkBox5);
         //signup whether customer or designer
         rbtn_ctm = findViewById(R.id.rbtn_ctm);
         rbtn_dsg = findViewById(R.id.rbtn_dsg);
@@ -89,13 +97,15 @@ public class SignupActivity extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                check_null=0;
+                confirm_input=0;
                 name=name_edit.getText().toString();
                 email=email_edit.getText().toString();
                 pwd=pwd_edit.getText().toString();
+                pwd2=pwd_edit2.getText().toString();
                 contact=contact_edit.getText().toString();
 
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+
                 if(rbtn_ctm.isChecked()){
                     usertp="0";
                     //intent.putExtra("usertype", 0);
@@ -103,17 +113,71 @@ public class SignupActivity extends AppCompatActivity {
                     usertp="1";
                     //intent.putExtra("usertype", 1);
                 }
+                if(name.getBytes().length>0){
+                    check_null++;
+                }
+                if(pwd.getBytes().length>0){
+                    check_null++;
+                }
+                if(pwd2.getBytes().length>0){
+                    check_null++;
+                }
+                if(email.getBytes().length>0){
+                    check_null++;
+                }
+                if(contact.getBytes().length>0){
+                    check_null++;
+                }
+                if(check_null!=5){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "모든 항목에 대해 기입해주세요.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                else if(!pwd.equals(pwd2)){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "비밀번호가 다릅니다.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                else if(email_check<1){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "중복확인을 해주세요.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                else if(!email.contains("@")){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "이메일 형식이 잘못되었습니다.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                else if(pwd.getBytes().length<6){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "비밀번호는 6자리 이상 입력주세요.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                else if(!agree.isChecked()){
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "이용 약관에 동의해주세요.");
+                    confirm_input=1;
+                    startActivityForResult(intent, 1);
+                }
+                if(confirm_input==0) {
+                    InsertData insertdata = new InsertData();
+                    insertdata.execute("http://13.125.176.39/signup.php",name,email,pwd,contact,usertp);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
 
-                InsertData insertdata = new InsertData();
-                insertdata.execute("http://13.125.176.39/signup.php",name,email,pwd,contact,usertp);
+                    //데이터 담아서 팝업(액티비티) 호출
+                    intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("data", "Salon Space에 오신 것을 환영합니다.");
+                    startActivityForResult(intent, 1);
+                }
 
 
-                startActivity(intent);
 
-                //데이터 담아서 팝업(액티비티) 호출
-                intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("data", "Salon Space에 오신 것을 환영합니다.");
-                startActivityForResult(intent, 1);
             }
         });
     }
@@ -133,10 +197,12 @@ public class SignupActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
             if(idcheck.equals("success")) {
                 intent.putExtra("data", "사용가능한 이메일주소입니다.");
+                email_check=1;
                 startActivityForResult(intent, 1);
                 }
             if(idcheck.equals("error")) {
                 intent.putExtra("data", "이메일 주소 중복입니다.");
+                email_check=0;
                 startActivityForResult(intent, 1);
             }
             Log.d("test4",s);
@@ -206,6 +272,8 @@ public class SignupActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             Log.d("test3",s);
+
+
         }
 
         @Override
