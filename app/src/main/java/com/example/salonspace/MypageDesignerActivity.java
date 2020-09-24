@@ -37,8 +37,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -125,10 +127,10 @@ public class MypageDesignerActivity extends Fragment {
                     Bitmap photo = extras.getParcelable("data");
                     Bitmap test = photo.createScaledBitmap(photo, 720, 1024, true);
                     Image_profile.setImageBitmap(test);
-                    uploadPhoto(test);
-                    // storeCropImage(photo, filePath);
 
-                    // sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
+                    storeCropImage(photo, filePath);
+
+                    //sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
                 }
                 // 임시 파일 삭제
                 File f = new File(uri.getPath());
@@ -137,45 +139,24 @@ public class MypageDesignerActivity extends Fragment {
                 }
                 break;
             }
+
+        }
+
+
+    }
+    private void storeCropImage(Bitmap bitmap, String filePath) {
+
+        File copyFile = new File(filePath);
+        BufferedOutputStream out = null;
+
+        try {
+            copyFile.createNewFile();
+            out = new BufferedOutputStream(new FileOutputStream(copyFile));
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-    private void uploadPhoto(final Bitmap bitmap){
-
-        Thread thread = new Thread(new Runnable() {
-
-            public void run() {
-
-                ByteArrayOutputStream bao = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bao);
-                byte [] ba = bao.toByteArray();
-                String ba1 = Base64.encodeToString(ba, Base64.DEFAULT);
-                ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-                nameValuePairs.add(new BasicNameValuePair("myfile", ba1));
-                nameValuePairs.add(new BasicNameValuePair("id", ID));
-                try {
-                    HttpClient client = new DefaultHttpClient();
-                    HttpPost post = new HttpPost("http://10.0.2.2:80/android/base.php");
-
-                    post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-                    HttpResponse response = client.execute(post);
-                    //HttpEntity entity = response.getEntity();
-
-                } catch (UnsupportedEncodingException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (ClientProtocolException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-
-            }
-        });
-        thread.start();
-
-
-    }
-
 }
