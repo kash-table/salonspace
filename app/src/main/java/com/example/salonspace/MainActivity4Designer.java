@@ -38,8 +38,7 @@ public class MainActivity4Designer extends AppCompatActivity {
     //fragment
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentDesigner fragmentDesigner = new FragmentDesigner();
-    private FragmentMypage fragmentMypage = new FragmentMypage();
-
+    private MypageDesignerActivity fragmentMypage = new MypageDesignerActivity();
 
 
     @Override

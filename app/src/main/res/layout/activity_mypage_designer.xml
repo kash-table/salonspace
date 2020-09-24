@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+                <ImageView
+
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_margin="32px"
+                    android:scaleType="centerInside"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nsrb"
+                    android:textSize="24sp"
+                    android:text="마이"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    />
+
+                <ImageView
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_margin="32px"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/setting" />
+
+            </LinearLayout>
+
+<!--            Profile-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="12dp">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/advertise1"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FFF5F5F5"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_height="match_parent"
+                    android:text="이준호"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center|left"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/black_round_border"
+                    android:gravity="center"
+                    android:textSize="12dp"
+
+                    android:text="프로필 편집"
+                    />
+            </LinearLayout>
+<!--            내정보-->
+
+<!--            고객센터-->
+
+<!--            브랜드스토리-->
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
