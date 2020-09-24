@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 String sql = "insert into Login(ID,PW,UserType) values (?,?,?)";
                 String[] arg1 = {name, passwd, usertype2};
 
-                //저장
+                //저장ㅣ
                 db.execSQL(sql, arg1);
                 db.close();
 

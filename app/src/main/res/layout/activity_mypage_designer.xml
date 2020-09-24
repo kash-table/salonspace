@@ -84,7 +84,6 @@
                     android:background="@drawable/black_round_border"
                     android:gravity="center"
                     android:textSize="12dp"
-                    android:onClick=""
                     android:text="프로필 편집"
                     />
             </LinearLayout>

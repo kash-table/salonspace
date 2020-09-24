@@ -1,25 +1,47 @@
 package com.example.salonspace;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -28,11 +50,25 @@ public class MypageDesignerActivity extends Fragment {
     ImageView Image_profile;
     String[] permission_list = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     Uri uri;
-
+    String ID="";
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
         Image_profile = v1.findViewById(R.id.profile_image);
         Select_profile = v1.findViewById(R.id.btn_select);
+
+        //내부 DB오픈
+        DBHelper helper =new DBHelper(getContext());
+        SQLiteDatabase db=helper.getReadableDatabase();
+
+        String LoadID="select ID from Login";
+        Cursor c=db.rawQuery(LoadID,null);
+        ID="";
+        while(c.moveToNext()){
+            // 가져올 컬럼의 인덱스 번호 추출
+            int index=c.getColumnIndex("ID");
+            ID=c.getString(index);
+            Log.d("testID",""+ID);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(permission_list, 0);
@@ -89,6 +125,7 @@ public class MypageDesignerActivity extends Fragment {
                     Bitmap photo = extras.getParcelable("data");
                     Bitmap test = photo.createScaledBitmap(photo, 720, 1024, true);
                     Image_profile.setImageBitmap(test);
+                    uploadPhoto(test);
                     // storeCropImage(photo, filePath);
 
                     // sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
@@ -102,4 +139,43 @@ public class MypageDesignerActivity extends Fragment {
             }
         }
     }
+    private void uploadPhoto(final Bitmap bitmap){
+
+        Thread thread = new Thread(new Runnable() {
+
+            public void run() {
+
+                ByteArrayOutputStream bao = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, bao);
+                byte [] ba = bao.toByteArray();
+                String ba1 = Base64.encodeToString(ba, Base64.DEFAULT);
+                ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+                nameValuePairs.add(new BasicNameValuePair("myfile", ba1));
+                nameValuePairs.add(new BasicNameValuePair("id", ID));
+                try {
+                    HttpClient client = new DefaultHttpClient();
+                    HttpPost post = new HttpPost("http://10.0.2.2:80/android/base.php");
+
+                    post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                    HttpResponse response = client.execute(post);
+                    //HttpEntity entity = response.getEntity();
+
+                } catch (UnsupportedEncodingException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        thread.start();
+
+
+    }
+
 }
