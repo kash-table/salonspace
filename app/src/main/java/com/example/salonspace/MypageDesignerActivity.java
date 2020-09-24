@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -53,8 +54,9 @@ public class MypageDesignerActivity extends Fragment {
     String[] permission_list = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     Uri uri;
     String ID="";
+    View v1;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
+        v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
         Image_profile = v1.findViewById(R.id.profile_image);
         Select_profile = v1.findViewById(R.id.btn_select);
 
@@ -120,22 +122,23 @@ public class MypageDesignerActivity extends Fragment {
                 Log.e("test223", "bb2");
                 final Bundle extras = data.getExtras();
 
-                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/temp/" + System.currentTimeMillis() + ".jpg";
+                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + System.currentTimeMillis() + ".jpg";
 
                 Log.e("test223", "bb");
                 if (extras != null) {
                     Bitmap photo = extras.getParcelable("data");
                     Bitmap test = photo.createScaledBitmap(photo, 720, 1024, true);
-                    Image_profile.setImageBitmap(test);
+                    //Image_profile.setImageBitmap(test);
 
                     storeCropImage(photo, filePath);
-
-                    //sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
+                    Bitmap myBitmap = BitmapFactory.decodeFile(filePath);
+                    Image_profile.setImageBitmap(myBitmap);
+                    //getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
                 }
                 // 임시 파일 삭제
                 File f = new File(uri.getPath());
                 if (f.exists()) {
-                    f.delete();
+                   // f.delete();
                 }
                 break;
             }
