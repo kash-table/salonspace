@@ -38,6 +38,7 @@ public class MainActivity4Designer extends AppCompatActivity {
     //fragment
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentDesigner fragmentDesigner = new FragmentDesigner();
+    private FragmentMypage fragmentMap = new FragmentMypage();
     private MypageDesignerActivity fragmentMypage = new MypageDesignerActivity();
 
 
@@ -85,7 +86,7 @@ public class MainActivity4Designer extends AppCompatActivity {
                         transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
                         break;
                     case R.id.Item2:
-                        transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
+                        transaction.replace(R.id.frameLayout, fragmentMap).commitAllowingStateLoss();
                         break;
                     case R.id.Item3:
                         transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();

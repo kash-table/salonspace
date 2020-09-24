@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -36,7 +37,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
@@ -131,6 +134,8 @@ public class MypageDesignerActivity extends Fragment {
                     storeCropImage(photo, filePath);
                     Bitmap myBitmap = BitmapFactory.decodeFile(filePath);
                     Image_profile.setImageBitmap(myBitmap);
+                    InsertData insert=new InsertData();
+                    insert.execute();
                     //getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory()))); // 갤러리를 갱신하기 위해..
                 }
                 // 임시 파일 삭제
@@ -160,97 +165,111 @@ public class MypageDesignerActivity extends Fragment {
             e.printStackTrace();
         }
     }
+    class InsertData extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("test!","please wait...\n");
+        }
 
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
 
-    protected String doInBackground(String... strings) {
-            /*
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+                 /*
                  strings에서 값 할당 생략
             */
-        // 전송할 키와 값. 배열보다는 Map을 이용하자.
-        String[] data = {ID};
-        String[] dataName = {"id"};
+            // 전송할 키와 값. 배열보다는 Map을 이용하자.
+            String[] data = {ID};
+            String[] dataName = {"id"};
 
-        // boundary생성, 여기서는 고정값이지만 되도록이면 실행할때마다 다른값을 할당하자.
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
-        String boundary = "androidupload";
-        String resp="";
-        File targetFile = null;
-        String fileName ="";
-        if(filePath!=null) {
-            targetFile = new File(filePath);
-            fileName=targetFile.getName();
-        }
-
-        byte[] buffer;
-        int maxBufferSize = 5*1024 * 1024;
-        HttpURLConnection conn = null;
-        String urlStr = "http://13.125.176.39/upload_designer_image.php";
-        try {
-            conn = (HttpURLConnection) new URL(urlStr).openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            conn.setRequestMethod("POST");
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        }
-        conn.setReadTimeout(10000);
-        conn.setConnectTimeout(10000);
-        conn.setDoOutput(true);
-        conn.setDoInput(true);
-        conn.setUseCaches(false);
-        conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-        conn.setRequestProperty("Content-Type","multipart/form-data;boundary="+boundary);
-        String delimiter = twoHyphens + boundary + lineEnd; // --androidupload\r\n
-        StringBuffer postDataBuilder = new StringBuffer();
-        for(int i=0;i<data.length;i++){
-            postDataBuilder.append(delimiter);
-            postDataBuilder.append("Content-Disposition: form-data; name=\"" + dataName[i] +"\""+lineEnd+lineEnd+data[i]+lineEnd);
-        }
-        // 파일이 존재할 때에만 생성
-        if(fileName!=null){
-            postDataBuilder.append(delimiter);
-            postDataBuilder.append("Content-Disposition: form-data; name=\"" + "myfile" + "\";filename=\"" + fileName +"\"" + lineEnd);
-        }
-        try {
-            DataOutputStream ds = new DataOutputStream(conn.getOutputStream());
-            ds.write(postDataBuilder.toString().getBytes());
-
-            if(filePath!=null){
-                ds.writeBytes(lineEnd);
-                FileInputStream fStream = new FileInputStream(targetFile);
-                buffer = new byte[maxBufferSize];
-                int length = -1;
-                while((length=fStream.read(buffer)) != -1){
-                    ds.write(buffer,0,length);
-                }
-                ds.writeBytes(lineEnd);
-                ds.writeBytes(lineEnd);
-                ds.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd); // requestbody end
-                fStream.close();
-            }else{
-                ds.writeBytes(lineEnd);
-                ds.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd); // requestbody end
+            // boundary생성, 여기서는 고정값이지만 되도록이면 실행할때마다 다른값을 할당하자.
+            String lineEnd = "\r\n";
+            String twoHyphens = "--";
+            String boundary = "androidupload";
+            String resp="";
+            File targetFile = null;
+            String fileName ="";
+            if(filePath!=null) {
+                targetFile = new File(filePath);
+                fileName=targetFile.getName();
             }
-            ds.flush();
-            ds.close();
-            int responseCode  = conn.getResponseCode();
 
-            if(responseCode == HttpURLConnection.HTTP_OK)
-            {
-                String line = null;
-                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                while((line=br.readLine())!=null) {
-                    resp += line;
-                }
+            byte[] buffer;
+            int maxBufferSize = 5*1024 * 1024;
+            HttpURLConnection conn = null;
+            String urlStr = "http://13.125.176.39/upload_designer_image.php";
+            try {
+                conn = (HttpURLConnection) new URL(urlStr).openConnection();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            try {
+                conn.setRequestMethod("POST");
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            }
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(10000);
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setUseCaches(false);
+            conn.setRequestProperty("ENCTYPE", "multipart/form-data");
+            conn.setRequestProperty("Content-Type","multipart/form-data;boundary="+boundary);
+            String delimiter = twoHyphens + boundary + lineEnd; // --androidupload\r\n
+            StringBuffer postDataBuilder = new StringBuffer();
+            for(int i=0;i<data.length;i++){
+                postDataBuilder.append(delimiter);
+                postDataBuilder.append("Content-Disposition: form-data; name=\"" + dataName[i] +"\""+lineEnd+lineEnd+data[i]+lineEnd);
+            }
+            // 파일이 존재할 때에만 생성
+            if(fileName!=null){
+                postDataBuilder.append(delimiter);
+                postDataBuilder.append("Content-Disposition: form-data; name=\"" + "myfile" + "\";filename=\"" + fileName +"\"" + lineEnd);
+            }
+            try {
+                DataOutputStream ds = new DataOutputStream(conn.getOutputStream());
+                ds.write(postDataBuilder.toString().getBytes());
 
-        return resp;
+                if(filePath!=null){
+                    ds.writeBytes(lineEnd);
+                    FileInputStream fStream = new FileInputStream(targetFile);
+                    buffer = new byte[maxBufferSize];
+                    int length = -1;
+                    while((length=fStream.read(buffer)) != -1){
+                        ds.write(buffer,0,length);
+                    }
+                    ds.writeBytes(lineEnd);
+                    ds.writeBytes(lineEnd);
+                    ds.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd); // requestbody end
+                    fStream.close();
+                }else{
+                    ds.writeBytes(lineEnd);
+                    ds.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd); // requestbody end
+                }
+                ds.flush();
+                ds.close();
+                int responseCode  = conn.getResponseCode();
+
+                if(responseCode == HttpURLConnection.HTTP_OK)
+                {
+                    String line = null;
+                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    while((line=br.readLine())!=null) {
+                        resp += line;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Log.e("return",resp.toString());
+            return resp;
+        }
     }
+
 
 }
