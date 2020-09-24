@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -29,6 +31,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.smarteist.autoimageslider.IndicatorView.draw.DrawManager;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -42,8 +48,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
@@ -51,10 +59,14 @@ import static android.app.Activity.RESULT_OK;
 public class MypageDesignerActivity extends Fragment {
     Button Select_profile;
     ImageView Image_profile;
+    private Context mContext;
     String[] permission_list = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     Uri uri;
+    //사용자 이메일 값
     String ID="";
+    //FRAGMENT 뷰
     View v1;
+    // CROP한 이미지경로
     String filePath;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
@@ -86,9 +98,18 @@ public class MypageDesignerActivity extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+        //처음시작시 이미지파일 불러오기
+        InsertData2 insertdata2 = new InsertData2();
+        insertdata2.execute("http://13.125.176.39/get_designer_image.php",ID);
+
         return v1;
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -270,6 +291,73 @@ public class MypageDesignerActivity extends Fragment {
             return resp;
         }
     }
+    // 처음시작시 이미지파일 불러오기
+    class InsertData2 extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("test!","please wait...\n");
+        }
 
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            String imageUrl = s;
+            Glide.with(getContext()).load("https://salonspace.s3.ap-northeast-2.amazonaws.com/" + imageUrl).error(R.drawable.profile_default).into(Image_profile);
+
+            Log.d("test4result",s);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String result="";
+            String serverurl = params[0];
+            String email_value = params[1];
+            String postparameters = "id="+email_value;
+
+            try{
+                URL url = new URL(serverurl);
+
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                conn.setConnectTimeout(5000);
+                conn.setUseCaches(false);
+                conn.setRequestMethod("POST");
+                conn.connect();
+
+                OutputStream outputstream = conn.getOutputStream();
+                outputstream.write(postparameters.getBytes("UTF-8"));
+                outputstream.flush();
+                outputstream.close();
+
+                InputStream inputstream;
+
+                if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
+                    inputstream = conn.getInputStream();
+                }else{
+                    inputstream = conn.getErrorStream();
+                }
+
+                InputStreamReader inputreader = new InputStreamReader(inputstream, "UTF-8");
+                BufferedReader bufferedreader = new BufferedReader(inputreader);
+
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                int a=1;
+                while((line = bufferedreader.readLine())!=null){
+                    sb.append(line);
+                    a++;
+                }
+
+                bufferedreader.close();
+                return sb.toString();
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+    }
 
 }
