@@ -63,7 +63,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/advertise1"
+
                     app:civ_border_width="2dp"
                     app:civ_border_color="#FFF5F5F5"/>
                 <TextView
@@ -78,12 +78,13 @@
                     />
 
                 <Button
+                    android:id="@+id/btn_select"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
                     android:background="@drawable/black_round_border"
                     android:gravity="center"
                     android:textSize="12dp"
-
+                    android:onClick=""
                     android:text="프로필 편집"
                     />
             </LinearLayout>
