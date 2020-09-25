@@ -17,13 +17,13 @@ import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawControlle
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
-public class FragmentDesigner extends Fragment {
+public class FragmentUser extends Fragment {
     // 이미지 슬라이더
     SliderView sliderView;
     private SliderAdapterExample adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_main_designer, container, false);
+        View v = inflater.inflate(R.layout.fragment_main_user, container, false);
         sliderView = (SliderView) v.findViewById(R.id.imageSlider);
 
         adapter = new SliderAdapterExample(getContext());
@@ -46,12 +46,6 @@ public class FragmentDesigner extends Fragment {
                 Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
             }
         });
-
-        //custom View test
-        CustomReserveActivity custom1 = v.findViewById(R.id.customView1);
-        TextView t = custom1.findViewById(R.id.name);
-        t.setText("노민도 고객님");
-
         return v;
     }
     public void addNewItem() {

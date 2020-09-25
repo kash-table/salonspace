@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/timeNplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="09:00/왕십리"
+        android:layout_margin="12dp"
+        style="@style/TEXTVIEW_SMALL_NO_MARGIN"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="최민우 고객님"
+        android:textColor="#000000"
+        android:layout_marginHorizontal="12dp"
+        style="@style/TEXTVIEW_LARGE_NO_MARGIN"/>
+    <TextView
+        android:id="@+id/designNprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="펌신펌왕 디자인펌 외 1개 39,800원"
+        android:layout_margin="12dp"
+        style="@style/TEXTVIEW_MEDIUM_NO_MARGIN"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right">
+        <TextView
+            android:id="@+id/btn_review"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/black_round_border"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:drawablePadding="8dp"
+            android:layout_marginHorizontal="12dp"
+            style="@style/TEXTVIEW_SMALL_NO_MARGIN"
+            android:drawableLeft="@drawable/review"
+            android:text="리뷰 쓰기"
+            />
+        <TextView
+            android:id="@+id/btn_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/black_round_border"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:drawablePadding="8dp"
+            android:layout_marginRight="12dp"
+            android:drawableLeft="@drawable/detail"
+            style="@style/TEXTVIEW_SMALL_NO_MARGIN"
+            android:text="예약 상세"
+            />
+        <TextView
+            android:id="@+id/btn_map"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/black_round_border"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:drawablePadding="8dp"
+            android:layout_marginRight="12dp"
+            android:drawableLeft="@drawable/shop"
+            style="@style/TEXTVIEW_SMALL_NO_MARGIN"
+            android:text="시술 매장"
+            />
+    </LinearLayout>
+    <View
+        android:layout_marginVertical="12dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#E3E3E3"
+        android:layout_gravity="center"/>
+</LinearLayout>

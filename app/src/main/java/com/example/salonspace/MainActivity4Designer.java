@@ -74,6 +74,8 @@ public class MainActivity4Designer extends AppCompatActivity {
 
         setContentView(R.layout.activity_main_custom);
         setContentView(R.layout.activity_main_designer);
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,6 +83,7 @@ public class MainActivity4Designer extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // Change Fragment
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
+
                 switch(item.getItemId()){
                     case R.id.Item1:
                         transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
@@ -100,7 +103,6 @@ public class MainActivity4Designer extends AppCompatActivity {
         });
 
     }
-
     class CustomAdaptor extends PagerAdapter {
         @Override
         public int getCount() {
@@ -124,6 +126,11 @@ public class MainActivity4Designer extends AppCompatActivity {
             pager.removeView((View)object);
         }
 
+    }
+    public void MoveProfileManage(View view){
+        Intent intent = new Intent(this, ProfileUpdateActivity.class);
+        startActivity(intent);
+        return;
     }
     // 로그아웃시 db 정보 없애기 !
     public void btnlogout(View v){

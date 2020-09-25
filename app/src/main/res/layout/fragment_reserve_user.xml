@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+<!--        상단바         -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nsrb"
+                    android:textSize="24sp"
+                    android:text="예약"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                />
+            <View
+            android:layout_marginVertical="12dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E3E3E3"
+            android:layout_gravity="center"/>
+            <com.example.salonspace.CustomReserveUserActivity
+                android:id="@+id/customView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <com.example.salonspace.CustomReserveUserActivity
+                android:id="@+id/customView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <com.example.salonspace.CustomReserveUserActivity
+                android:id="@+id/customView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <com.example.salonspace.CustomReserveUserActivity
+                android:id="@+id/customView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

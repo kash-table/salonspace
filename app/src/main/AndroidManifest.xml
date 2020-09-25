@@ -23,6 +23,8 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".SearchResultActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".ProfilePreviewActivity" />
+        <activity android:name=".ProfileUpdateActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".ReserveActivity" />
         <activity android:name=".ReviewActivity" />

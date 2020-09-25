@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,25 +9,41 @@
     <!-- 스크롤뷰 적용 (1개의 Object만 ScrollView에 적용 가능.) -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="1dp"
+        android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <!-- 디자이너 프로필 -->
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginBottom="24dp">
-            </androidx.viewpager.widget.ViewPager>
+                android:layout_height="wrap_content">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:sliderAnimationDuration="2000"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorAnimationDuration="300"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorRadius="1dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
+
+            </androidx.cardview.widget.CardView>
 
             <!-- 한줄소개 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:layout_marginTop="16dp"
                 android:text="한줄 소개"
                 android:textSize="18sp"
                 android:fontFamily="@font/nsrb"
@@ -112,49 +129,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="16dp">
-                <Button
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-
-                    android:layout_margin="4dp"
-                    android:text="문의"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:background="@drawable/rounded_corner"
-                    />
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    android:layout_margin="4dp"
-
-                    android:text="예약하기"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:background="@drawable/orange_back_round_border"
-
-                    android:onClick="onReserveClick"
-                    />
-                <Button
-                    android:layout_width="80dp"
-                    android:layout_height="60dp"
-                    android:layout_margin="4dp"
-
-                    android:text="♡"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
-                    android:background="@drawable/rounded_corner"
-                    />
-            </LinearLayout>
 
 
         </LinearLayout>
 
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="16dp">
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+
+            android:layout_margin="4dp"
+            android:text="문의"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:background="@drawable/rounded_corner"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+
+            android:text="예약하기"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:background="@drawable/orange_back_round_border"
+
+            android:onClick="onReserveClick"
+            />
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+
+            android:text="♡"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:background="@drawable/rounded_corner"
+            />
+    </LinearLayout>
 
 </LinearLayout>

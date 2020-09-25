@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="top"
+    android:background="#ffffff"
     android:orientation="vertical">
 
 
@@ -120,8 +121,51 @@
 
 
             </RelativeLayout>
+            <View
+                android:layout_marginVertical="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="#707070"
+                android:layout_gravity="center"/>
+<!--        예약 관리-->
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="오늘의 예약 관리"
+                style="@style/TEXTVIEW_MEDIUM"/>
+            <View
+                android:layout_marginVertical="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="#707070"
+                android:layout_gravity="center"/>
+            <com.example.salonspace.CustomReserveActivity
+                android:id="@+id/customView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <View
+                android:layout_marginVertical="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="#707070"
+                android:layout_gravity="center"/>
+            <com.example.salonspace.CustomReserveActivity
+                android:id="@+id/customView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
+            <View
+                android:layout_marginVertical="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="#707070"
+                android:layout_gravity="center"/>
+<!--        디자이너픽 (제거에정)-->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +176,7 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:fontFamily="@font/nsrb"
-                android:text="7월 디자이너스 PICK"/>
+                android:text="Salon Space"/>
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="6dp"
                 android:layout_margin="16dp"

@@ -115,6 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="고객 페이지 관리"
+                    android:onClick="MoveProfileManage"
                     style="@style/TEXTVIEW_MEDIUM"
                     />
             </LinearLayout>

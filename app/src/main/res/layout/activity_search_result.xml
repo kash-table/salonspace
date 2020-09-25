@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/toolbar"
         android:drawableLeft="@drawable/back"
-        android:layout_marginRight="20dp"
+        android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="펌"
@@ -30,46 +30,26 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/logo_orange"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/logo_gray_1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_height="160dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="1dp"
                     android:onClick="onResultClick"
-                    android:src="@drawable/logo_orange"/>
+                    android:src="@drawable/ex1"/>
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@drawable/logo_gray_1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/logo_orange"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/logo_gray_1"/>
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ex2"
+                    android:layout_margin="1dp"
+                    android:layout_height="160dp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

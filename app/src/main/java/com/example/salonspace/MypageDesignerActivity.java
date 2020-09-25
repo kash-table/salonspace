@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -68,6 +69,7 @@ public class MypageDesignerActivity extends Fragment {
     View v1;
     // CROP한 이미지경로
     String filePath;
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
         Image_profile = v1.findViewById(R.id.profile_image);
@@ -186,6 +188,7 @@ public class MypageDesignerActivity extends Fragment {
             e.printStackTrace();
         }
     }
+
     class InsertData extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
@@ -291,6 +294,7 @@ public class MypageDesignerActivity extends Fragment {
             return resp;
         }
     }
+
     // 처음시작시 이미지파일 불러오기
     class InsertData2 extends AsyncTask<String, Void, String> {
         @Override

@@ -30,6 +30,7 @@ public class FragmentMypage extends Fragment implements OnMapReadyCallback {
         return v;
     }
 
+
     @Override
     public void onMapReady(GoogleMap googlemap) {
         mgoogleMap = googlemap;

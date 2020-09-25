@@ -3,7 +3,7 @@
     <style name = "TEXTVIEW_LARGE">
         <item name = "android:textSize">24dp</item>
         <item name = "android:fontFamily">@font/nsrb</item>
-        <item name = "android:layout_margin">16dp</item>
+        <item name = "android:layout_margin">12dp</item>
         <item name = "android:textColor">#000000</item>
     </style>
     <style name = "TEXTVIEW_MEDIUM">
@@ -15,6 +15,27 @@
     <style name = "TEXTVIEW_SMALL">
         <item name = "android:textSize">12dp</item>
         <item name = "android:fontFamily">@font/nsrb</item>
-        <item name = "android:layout_margin">8dp</item>
+        <item name = "android:layout_margin">12dp</item>
+    </style>
+    <style name = "TEXTVIEW_SSMALL">
+        <item name = "android:textSize">10dp</item>
+        <item name = "android:fontFamily">@font/nsrb</item>
+        <item name = "android:layout_margin">12dp</item>
+    </style>
+    <style name = "TEXTVIEW_SSMALL_NO_MARGIN">
+        <item name = "android:textSize">10dp</item>
+        <item name = "android:fontFamily">@font/nsrb</item>
+    </style>
+    <style name = "TEXTVIEW_SMALL_NO_MARGIN">
+        <item name = "android:textSize">12dp</item>
+        <item name = "android:fontFamily">@font/nsrb</item>
+    </style>
+    <style name = "TEXTVIEW_MEDIUM_NO_MARGIN">
+        <item name = "android:textSize">18dp</item>
+        <item name = "android:fontFamily">@font/nsrb</item>
+    </style>
+    <style name = "TEXTVIEW_LARGE_NO_MARGIN">
+        <item name = "android:textSize">24dp</item>
+        <item name = "android:fontFamily">@font/nsrb</item>
     </style>
 </resources>
