@@ -64,12 +64,23 @@
 
             </TextView>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_marginTop="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="168dp"
+                    android:layout_below="@+id/output"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="-48dp"
+                    android:background="@drawable/rounded_corner_large"
+                    />
                 <TextView
+                    android:id="@+id/output"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="이번 달 매출"
@@ -77,19 +88,39 @@
                     android:paddingVertical="16dp"
                     android:layout_marginHorizontal="16dp"
                     android:textColor="#ffffff"
-                    android:background="@drawable/orange_back_round_border"
+                    android:background="@drawable/orange_back_round_border_middle"
                     />
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="이번 달 매출"
-                    android:gravity="center"
-                    android:paddingVertical="16dp"
-                    android:layout_margin="16dp"
-                    android:textColor="#ffffff"
-                    android:background="@drawable/orange_back_round_border"
-                    />
-            </LinearLayout>
+                    android:layout_height="120dp"
+                    android:layout_below="@id/output"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="20dp"
+                        android:text="433,229,800 원"
+                        android:gravity="center"
+                        style="@style/TEXTVIEW_LARGE"/>
+                    <View
+                        android:layout_marginHorizontal="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.01dp"
+                        android:background="#707070"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="매출 내역 자세히 보기"
+                        android:gravity="center"
+                        style="@style/TEXTVIEW_SMALL"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="match_parent"

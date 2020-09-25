@@ -69,12 +69,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:textColor="#000000"
-                    android:textSize="18dp"
                     android:layout_height="match_parent"
                     android:text="이준호"
-                    android:layout_marginLeft="12dp"
                     android:gravity="center|left"
+                    style="@style/TEXTVIEW_LARGE"
                     />
 
                 <Button
@@ -83,16 +81,107 @@
                     android:layout_height="32dp"
                     android:background="@drawable/black_round_border"
                     android:gravity="center"
-                    android:textSize="12dp"
+                    style="@style/TEXTVIEW_SMALL"
                     android:text="프로필 편집"
                     />
             </LinearLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
 <!--            내정보-->
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내 정보"
+                    style="@style/TEXTVIEW_SMALL"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인 정보 변경"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객 페이지 관리"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
 <!--            고객센터-->
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객 센터"
+                    style="@style/TEXTVIEW_SMALL"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공지사항"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="문의하기"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="도움말"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+            </LinearLayout>
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
 <!--            브랜드스토리-->
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="브랜드 스토리"
+                    style="@style/TEXTVIEW_SMALL"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salon Space 소개"
+                    style="@style/TEXTVIEW_MEDIUM"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
