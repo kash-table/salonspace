@@ -10,6 +10,6 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         //타이틀바 없애기
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile_edit);
     }
 }

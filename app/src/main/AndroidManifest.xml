@@ -21,7 +21,12 @@
         <activity android:name=".FindPW" />
         <activity android:name=".FindID" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".SearchResultActivity" />
         <activity android:name=".ProfileActivity" />
@@ -41,10 +46,6 @@
             android:theme="@style/AppFullScreenTheme">
         </activity>
         <activity android:name=".MainActivity4Designer">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

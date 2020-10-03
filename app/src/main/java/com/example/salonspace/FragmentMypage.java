@@ -35,8 +35,8 @@ public class FragmentMypage extends Fragment implements OnMapReadyCallback,Googl
     LocationManager locationManager;
     MapView mapView;
     ImageView img;
-    Double lng;
-    Double lat;
+    double lng;
+    double lat;
     String [] permission_list={Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
@@ -59,6 +59,7 @@ public class FragmentMypage extends Fragment implements OnMapReadyCallback,Googl
                 LatLng Address=new LatLng(lat,lng);
                 mgoogleMap.moveCamera(CameraUpdateFactory.newLatLng(Address));
                 MarkerOptions markerOptions=new MarkerOptions(); //마커 추가
+                Log.e("testlat",lat+"//"+lng);
                 markerOptions.position(Address);
                 markerOptions.title("내위치");  //마커옵션 추가
                 mgoogleMap.addMarker(markerOptions); //마커등록
@@ -81,22 +82,19 @@ public class FragmentMypage extends Fragment implements OnMapReadyCallback,Googl
                 return;
         }
         //이전에 측정했던 값을 가져온다.
-        Location location1=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        Location location2=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location1=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location2=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-        if(location1 != null){
-            setMyLocation(location1);
-        }else{
-            if(location2!=null)
-                setMyLocation(location2);
-        }
-        //새롭게 측정
+        // 1. 네트워크, 2. GPS
+        if(location1 != null) { setMyLocation(location1); }
+        else if(location2!=null) { setMyLocation(location2); }
+
+        // 1. 네트워크, 2. GPS
         GetMyLocationListener listener=new GetMyLocationListener();
-        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)==true){
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10f,listener);
-        }
-        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)==true){
+        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)==true) {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000,10f,listener);
+        } else if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)==true) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10f,listener);
         }
 
     }

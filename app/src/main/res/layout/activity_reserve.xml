@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <!-- 스크롤뷰 적용 (1개의 Object만 ScrollView에 적용 가능.) -->
@@ -108,12 +109,13 @@
                 android:layout_marginHorizontal="18dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="8dp"/>
-            <TextView
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_listview"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:gravity="center"
-                android:text="서비스 준비중..."
-                style="@style/TEXTVIEW_LARGE_NO_MARGIN"/>
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal" />
+
             <!-- 시간 선택-->
             <TextView
                 android:layout_width="match_parent"
@@ -127,12 +129,13 @@
                 android:layout_marginHorizontal="18dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="8dp"/>
-            <TextView
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="16px"
+                android:id="@+id/time_listview"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:gravity="center"
-                android:text="서비스 준비중..."
-                style="@style/TEXTVIEW_LARGE_NO_MARGIN"/>
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal" />
             <!-- 시술 전 체크 리스트-->
             <TextView
                 android:layout_width="match_parent"
