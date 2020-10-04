@@ -86,18 +86,20 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"/>
-                <Button
-                    android:id="@+id/btn_set_intro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:background="@drawable/orange_round_border"
-                    android:gravity="center"
-                    android:textColor="@color/colorAccent"
-                    style="@style/TEXTVIEW_SMALL"
-                    android:text="설정하기"
-                    />
+
+                    <Button
+                        android:id="@+id/btn_set_intro"
+                        style="@style/TEXTVIEW_SMALL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/orange_round_border"
+                        android:gravity="center"
+                        android:onClick="info"
+                        android:text="설정하기"
+                        android:textColor="@color/colorAccent" />
                 </LinearLayout>
                 <EditText
+                    android:id="@+id/info"
                     android:layout_width="match_parent"
                     android:layout_marginHorizontal="8dp"
                     android:layout_height="100dp"
@@ -165,23 +167,23 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"/>
+
                     <Button
                         android:id="@+id/btn_set_work"
+                        style="@style/TEXTVIEW_SMALL"
                         android:layout_width="wrap_content"
                         android:layout_height="32dp"
                         android:background="@drawable/orange_round_border"
                         android:gravity="center"
-                        android:textColor="@color/colorAccent"
-                        style="@style/TEXTVIEW_SMALL"
+                        android:onClick="test"
                         android:text="설정하기"
-                        />
+                        android:textColor="@color/colorAccent" />
                 </LinearLayout>
-                <TextView
+
+                <ListView
+                    android:id="@+id/list1"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:text="서비스 준비중..."
-                    android:gravity="center"
-                    style="@style/TEXTVIEW_LARGE_NO_MARGIN"/>
+                    android:layout_height="wrap_content" />
 
                 <!--시술 사진-->
                 <LinearLayout
