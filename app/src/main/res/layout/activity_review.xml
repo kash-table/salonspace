@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TEXTVIEW_MEDIUM"
+                android:gravity="center"
+                android:text="노민도 디자이너"
+            />
+<!--별점-->
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:numStars="5"
+                android:layout_gravity="center"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:rating="4"
+                android:stepSize="1"
+            />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
+<!--리뷰 작성 칸-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/TEXTVIEW_SMALL"
+                android:text="최근 리뷰 252 | 최근 디자이너 댓글 251"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                style="@style/TEXTVIEW_SMALL"
+                android:background="@drawable/orange_round_border" />
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:background="@color/colorLine"
+                android:layout_gravity="center"/>
+<!--리뷰 전체보기-->
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.salonspace;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -119,4 +120,8 @@ public class ReserveActivity extends AppCompatActivity {
             // Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
         }
     };
+    public void onReserveClick(View v){
+        Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+        startActivity(intent);
+    }
 }
