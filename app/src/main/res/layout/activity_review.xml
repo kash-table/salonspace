@@ -6,7 +6,8 @@
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,11 +44,19 @@
                 android:gravity="center"
                 style="@style/TEXTVIEW_SMALL"
                 android:text="최근 리뷰 252 | 최근 디자이너 댓글 251"/>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/TEXTVIEW_MEDIUM"
+                android:text="시술은 어떠셨나요?"/>
             <EditText
+                android:gravity="top"
+                android:padding="24px"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 style="@style/TEXTVIEW_SMALL"
+                android:hint="첫 줄에는 리뷰 요약을 적어주세요!"
                 android:background="@drawable/orange_round_border" />
 
             <View
@@ -57,10 +66,32 @@
                 android:layout_height="0.01dp"
                 android:background="@color/colorLine"
                 android:layout_gravity="center"/>
+
 <!--리뷰 전체보기-->
-
-
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/TEXTVIEW_MEDIUM"
+                android:text="리뷰 (0)"/>
+<!--            리스트뷰 필요-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="center"
+                style="@style/TEXTVIEW_SMALL"
+                android:text="민도형 채워줘 리스트뷰"/>
         </LinearLayout>
     </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:text="결제하기"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:background="@drawable/orange_back_round_border"
+        android:onClick="onReserveClick"
+        />
+
 </LinearLayout>
