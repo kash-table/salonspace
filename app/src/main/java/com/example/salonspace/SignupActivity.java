@@ -88,7 +88,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 email=email_edit.getText().toString();
                 InsertData2 insertdata = new InsertData2();
-                insertdata.execute("http://13.125.176.39/IDcheck.php",email);
+                insertdata.execute(getString(R.string.IP_ADDRESS)+"IDcheck.php",email);
             }
         });
 
@@ -166,7 +166,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
                 if(confirm_input==0) {
                     InsertData insertdata = new InsertData();
-                    insertdata.execute("http://13.125.176.39/signup.php",name,email,pwd,contact,usertp);
+                    insertdata.execute(getString(R.string.IP_ADDRESS)+"signup.php",name,email,pwd,contact,usertp);
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
 

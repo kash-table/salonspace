@@ -6,6 +6,7 @@
         <item name="colorPrimary">#FF6501</item>
         <item name="colorPrimaryDark">#FE5722</item>
         <item name="colorAccent">#FE5722</item>
+
     </style>
 
     <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">

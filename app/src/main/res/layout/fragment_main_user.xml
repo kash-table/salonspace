@@ -66,8 +66,9 @@
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
+
                 <EditText
-                    android:id="@+id/EditText"
+                    android:id="@+id/EditText_search"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_corner"

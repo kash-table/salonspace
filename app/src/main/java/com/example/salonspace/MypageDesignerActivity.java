@@ -35,6 +35,10 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.IndicatorView.draw.DrawManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -69,12 +73,13 @@ public class MypageDesignerActivity extends Fragment {
     View v1;
     // CROP한 이미지경로
     String filePath;
-
+    //프로필이름
+    TextView text_name;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v1 = (View) inflater.inflate(R.layout.activity_mypage_designer, container, false);
         Image_profile = v1.findViewById(R.id.profile_image);
         Select_profile = v1.findViewById(R.id.btn_select);
-
+        text_name=v1.findViewById(R.id.profile_name2);
         //내부 DB오픈
         DBHelper helper =new DBHelper(getContext());
         SQLiteDatabase db=helper.getReadableDatabase();
@@ -100,9 +105,14 @@ public class MypageDesignerActivity extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+        //시작시 디자이너 이름 받아오기
+        InsertData3 insertdata3 = new InsertData3();
+        insertdata3.execute(getString(R.string.IP_ADDRESS)+"get_designer_info.php",ID);
+
+
         //처음시작시 이미지파일 불러오기
         InsertData2 insertdata2 = new InsertData2();
-        insertdata2.execute("http://13.125.176.39/get_designer_image.php",ID);
+        insertdata2.execute(getString(R.string.IP_ADDRESS)+"get_designer_image.php",ID);
 
         return v1;
     }
@@ -226,7 +236,7 @@ public class MypageDesignerActivity extends Fragment {
             byte[] buffer;
             int maxBufferSize = 5*1024 * 1024;
             HttpURLConnection conn = null;
-            String urlStr = "http://13.125.176.39/upload_designer_image.php";
+            String urlStr = getString(R.string.IP_ADDRESS)+"upload_designer_image.php";
             try {
                 conn = (HttpURLConnection) new URL(urlStr).openConnection();
             } catch (IOException e) {
@@ -355,6 +365,82 @@ public class MypageDesignerActivity extends Fragment {
                 }
 
                 bufferedreader.close();
+                return sb.toString();
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+    }
+    //디자이너 이름 받아오기
+    class InsertData3 extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("test!","please wait...\n");
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            String json=s;
+            try {
+                JSONObject jsonObject=new JSONObject(json);
+                String name=jsonObject.getString("name");
+
+                text_name.setText(name);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Log.d("testinfo",s);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String result="";
+            String id=ID;
+            String serverurl = params[0];
+            String postparameters = "id="+ID;
+            Log.d("testinput",postparameters);
+            try{
+                URL url = new URL(serverurl);
+
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                conn.setConnectTimeout(5000);
+                conn.setUseCaches(false);
+                conn.setRequestMethod("POST");
+                conn.connect();
+
+                OutputStream outputstream = conn.getOutputStream();
+                outputstream.write(postparameters.getBytes("UTF-8"));
+                outputstream.flush();
+                outputstream.close();
+
+                InputStream inputstream;
+
+                if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
+                    inputstream = conn.getInputStream();
+                }else{
+                    inputstream = conn.getErrorStream();
+                }
+
+                InputStreamReader inputreader = new InputStreamReader(inputstream, "UTF-8");
+                BufferedReader bufferedreader = new BufferedReader(inputreader);
+
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                int a=1;
+                while((line = bufferedreader.readLine())!=null){
+                    sb.append(line);
+                    a++;
+                }
+
+                bufferedreader.close();
+                Log.d("testresultidcheck",sb.toString());
                 return sb.toString();
 
             }catch(Exception e){

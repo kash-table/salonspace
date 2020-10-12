@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 String pw=PW.getText().toString();
 
                 InsertData insertdata = new InsertData();
-                insertdata.execute("http://13.125.176.39/login.php",id,pw);
+                insertdata.execute(getString(R.string.IP_ADDRESS)+"login.php",id,pw);
 
 
                 // 내부 db 저장

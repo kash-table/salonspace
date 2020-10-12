@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,8 @@ public class ProfileUpdateActivity extends AppCompatActivity {
     String info;
     // 자기소개
     EditText edit_info;
+    EditText addtional_info;
+    TextView edit_name;
     //처음 db에서 받아올 메뉴들
     ArrayList<String> m_name;
     ArrayList<String> m_price;
@@ -50,7 +53,7 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_edit);
-
+        edit_name=(TextView) findViewById(R.id.info_name);
         list1=(ListView)findViewById(R.id.list1);
         //리스너 셋팅
         ListListner listner=new ListListner();
@@ -73,14 +76,15 @@ public class ProfileUpdateActivity extends AppCompatActivity {
 
         //자기소개 text값 가져오기
         edit_info=(EditText)findViewById(R.id.info);
-
+        //추가정보 값 가져오기
+        addtional_info=(EditText)findViewById(R.id.addtional);
         //처음 시작이 외부 db에서 디자이너 정보 가져오기.
 //        Log.d("test_info",info);
         InsertData3 insertData=new InsertData3();
-        insertData.execute("http://13.125.176.39/get_designer_info.php",edit_info.getText().toString());
+        insertData.execute(getString(R.string.IP_ADDRESS)+"get_designer_info.php",edit_info.getText().toString());
 //처음 시작이 외부 db에서 메뉴판 가져오기.
         InsertData4 insertData4=new InsertData4();
-        insertData4.execute("http://13.125.176.39/get_designer_style_table.php");
+        insertData4.execute(getString(R.string.IP_ADDRESS)+"get_designer_style_table.php");
 
 
     }
@@ -119,17 +123,17 @@ public class ProfileUpdateActivity extends AppCompatActivity {
                     setListViewHeightBasedOnChildren(list1);
 */
                     InsertData insertData=new InsertData();
-                    insertData.execute("http://13.125.176.39/upload_designer_table.php",name,price);
+                    insertData.execute(getString(R.string.IP_ADDRESS)+"upload_designer_table.php",name,price);
                     //초기화 - 외부db에서 다시 받아서 화면에 출력
                     InsertData4 insertData4=new InsertData4();
-                    insertData4.execute("http://13.125.176.39/get_designer_style_table.php");
+                    insertData4.execute(getString(R.string.IP_ADDRESS)+"get_designer_style_table.php");
                 }
                 if(result.equals("error")){
                     InsertData5 insertData5=new InsertData5();
-                    insertData5.execute("http://13.125.176.39/delete_designer_table.php",name);
+                    insertData5.execute(getString(R.string.IP_ADDRESS)+"delete_designer_table.php",name);
                     //초기화
                     InsertData4 insertData4=new InsertData4();
-                    insertData4.execute("http://13.125.176.39/get_designer_style_table.php");
+                    insertData4.execute(getString(R.string.IP_ADDRESS)+"get_designer_style_table.php");
 
                 }
 
@@ -149,7 +153,10 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         info=edit_info.getText().toString();
         Log.d("test_info",info);
         InsertData2 insertData=new InsertData2();
-        insertData.execute("http://13.125.176.39/change_designer_info.php",info);
+        insertData.execute(getString(R.string.IP_ADDRESS)+"change_designer_info.php",info);
+        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+        intent.putExtra("data", "변경이 완료되었습니다.");
+        startActivityForResult(intent, 1);
     }
 
     // 리스트뷰 높이 자동설정
@@ -416,8 +423,12 @@ public class ProfileUpdateActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject=new JSONObject(json);
                 String info=jsonObject.getString("description");
+                String ad=jsonObject.getString("additional_desciption");
+                String name=jsonObject.getString("name");
                 Log.d("testinfo!",info);
+                edit_name.setText(name);
                 edit_info.setText(info);
+                addtional_info.setText(ad);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

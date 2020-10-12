@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PopupActivitymodify"></activity>
+        <activity android:name=".Search_Activity"></activity>
+        <activity android:name=".PopupActivitymodify" />
         <activity
             android:name=".PopupActivity2"
             android:theme="@android:style/Theme.Dialog" />

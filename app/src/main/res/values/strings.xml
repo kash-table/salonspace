@@ -5,4 +5,5 @@
     <string name="signup_ctm"><b><font size="20">고객으로 가입</font></b><font size="13">\n\n디자이너님에게 도움을 받고 싶어요</font></string>
     <string name="signup_dsg"><b><font size="20">디자이너로 가입</font></b><font size="13">\n\n서비스가 필요한 고객님을 만나고 싶어요</font></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="IP_ADDRESS">http://13.125.255.81/</string>
 </resources>

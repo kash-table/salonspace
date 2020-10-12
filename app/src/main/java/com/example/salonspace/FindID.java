@@ -37,7 +37,7 @@ public class FindID extends AppCompatActivity {
         InsertData insertdata = new InsertData();
         String name_value=name.getText().toString();
         String contact_value=contact.getText().toString();
-        insertdata.execute("http://13.125.176.39/findID.php",name_value,contact_value);
+        insertdata.execute(getString(R.string.IP_ADDRESS)+"findID.php",name_value,contact_value);
 
     }
 

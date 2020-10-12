@@ -35,7 +35,7 @@ public class FindPW extends AppCompatActivity {
         String contact_value=contact.getText().toString();
 
         InsertData insertdata = new InsertData();
-        insertdata.execute("http://13.125.176.39/findPWD.php",name_value,email_value,contact_value);
+        insertdata.execute(getString(R.string.IP_ADDRESS)+"findPWD.php",name_value,email_value,contact_value);
 
     }
     public void btn5(View v){
@@ -44,7 +44,7 @@ public class FindPW extends AppCompatActivity {
         String contact_value=contact.getText().toString();
 
         InsertData insertdata = new InsertData();
-        insertdata.execute("http://13.125.176.39/findPWD.php",name_value,email_value,contact_value);
+        insertdata.execute(getString(R.string.IP_ADDRESS)+"findPWD.php",name_value,email_value,contact_value);
 
     }
 
