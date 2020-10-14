@@ -66,51 +66,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="기본 정보"
+                android:text="시술 선택"
                 android:textSize="18sp"
                 android:fontFamily="@font/nsrb"
                 android:textColor="#000000"
 
                 android:layout_marginHorizontal="18dp"/>
-
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
             <!-- 아래 부분을 ListView 로 커스텀해야함. -->
-      /*      <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+<!--      /*      <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
 
-                android:text="- 펌신펌왕"
-                android:textSize="16sp"
-                android:fontFamily="@font/nsrb"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="24dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+<!--                android:text="- 펌신펌왕"-->
+<!--                android:textSize="16sp"-->
+<!--                android:fontFamily="@font/nsrb"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginHorizontal="24dp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
 
-                android:text="- 베이비펌"
-                android:textSize="16sp"
-                android:fontFamily="@font/nsrb"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="24dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+<!--                android:text="- 베이비펌"-->
+<!--                android:textSize="16sp"-->
+<!--                android:fontFamily="@font/nsrb"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginHorizontal="24dp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
 
-                android:text="- 연락 가능 시간 06:00 ~ 12:00"
-                android:textSize="16sp"
-                android:fontFamily="@font/nsrb"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="24dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+<!--                android:text="- 연락 가능 시간 06:00 ~ 12:00"-->
+<!--                android:textSize="16sp"-->
+<!--                android:fontFamily="@font/nsrb"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginHorizontal="24dp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
 
-                android:text="- 39800 원"
-                android:textSize="16sp"
-                android:fontFamily="@font/nsrb"
-                android:layout_marginTop="16dp"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginBottom="32dp"/>
+<!--                android:text="- 39800 원"-->
+<!--                android:textSize="16sp"-->
+<!--                android:fontFamily="@font/nsrb"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginHorizontal="24dp"-->
+<!--                android:layout_marginBottom="32dp"/>-->
 */
             <!-- 이미지 슬라이더-->
             <TextView

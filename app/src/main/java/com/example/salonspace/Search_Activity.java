@@ -206,6 +206,7 @@ public class Search_Activity extends AppCompatActivity {
                     Double avg=Double.parseDouble(jsonObject.getString("avg"));
                     int count=Integer.parseInt(jsonObject.getString("count"));
                     String name=jsonObject.getString("name");
+                    Log.e("JsonName", name);
 
                     ad.addiTem(path,name,avg,count,email);
 

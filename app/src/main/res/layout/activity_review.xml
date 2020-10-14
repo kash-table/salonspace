@@ -58,7 +58,16 @@
                 style="@style/TEXTVIEW_SMALL"
                 android:hint="첫 줄에는 리뷰 요약을 적어주세요!"
                 android:background="@drawable/orange_round_border" />
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="8dp"
+                android:text="리뷰 남기기"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:background="@drawable/orange_back_round_border"
+                android:onClick="onReserveClick"
+                />
             <View
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="16dp"
@@ -83,15 +92,6 @@
                 android:text="민도형 채워줘 리스트뷰"/>
         </LinearLayout>
     </ScrollView>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="16dp"
-        android:text="결제하기"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:background="@drawable/orange_back_round_border"
-        android:onClick="onReserveClick"
-        />
+
 
 </LinearLayout>

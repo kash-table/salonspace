@@ -77,7 +77,7 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         //자기소개 text값 가져오기
         edit_info=(EditText)findViewById(R.id.info);
         //추가정보 값 가져오기
-        addtional_info=(EditText)findViewById(R.id.addtional);
+        // addtional_info=(EditText)findViewById(R.id.addtional);
         //처음 시작이 외부 db에서 디자이너 정보 가져오기.
 //        Log.d("test_info",info);
         InsertData3 insertData=new InsertData3();
@@ -430,7 +430,7 @@ public class ProfileUpdateActivity extends AppCompatActivity {
                 Log.d("testinfo!",info);
                 edit_name.setText(name);
                 edit_info.setText(info);
-                addtional_info.setText(ad);
+                //addtional_info.setText(ad);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
