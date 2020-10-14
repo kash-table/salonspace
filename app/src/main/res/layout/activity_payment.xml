@@ -89,28 +89,10 @@
                 style="@style/TEXTVIEW_MEDIUM"
             />
 <!--            ListView로 대체 필요-->
-            <LinearLayout
+            <ListView
+                android:id="@+id/menupan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="펌신펌왕 베이비펌"
-                    android:layout_marginHorizontal="16dp"
-                    style="@style/TEXTVIEW_SMALL_NO_MARGIN"
-                    />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="39,800원"
-                    android:gravity="right"
-                    android:layout_marginHorizontal="16dp"
-                    style="@style/TEXTVIEW_SMALL_NO_MARGIN"
-                    />
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
@@ -134,6 +116,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:id="@+id/resultp"
                     android:layout_height="wrap_content"
                     android:text="39,800원"
                     android:gravity="right"

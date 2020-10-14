@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 
 public class PopupActivitymodify extends Activity {
@@ -15,6 +16,7 @@ public class PopupActivitymodify extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_popup_activitymodify);
         menu_name=(EditText)findViewById(R.id.menu_name2);
         menu_price=(EditText)findViewById(R.id.menu_price2);
@@ -59,9 +61,5 @@ public class PopupActivitymodify extends Activity {
         }
         return true;
     }
-    @Override
-    public void onBackPressed() {
-        //안드로이드 백버튼 막기
-        return;
-    }
+
 }

@@ -9,6 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,6 +25,7 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,6 +36,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
     // 이미지 슬라이더
@@ -37,13 +44,37 @@ public class ProfileActivity extends AppCompatActivity {
     private SliderAdapterExample adapter;
     String ID;
     String url;
+    ListView list1;
+    ArrayList<HashMap<String,Object>> data_list;
+    //처음 db에서 받아올 메뉴들
+    ArrayList<String> m_name;
+    ArrayList<String> m_price;
+    //전달할 메뉴들
+    ArrayList<String> m_name_p;
+    ArrayList<String> m_price_p;
+
     TextView description;
+    int result_price;
     protected void onCreate(Bundle savedInstanceState) {
         //타이틀바 없애기
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         description=(TextView)findViewById(R.id.desc);
+        list1=(ListView)findViewById(R.id.list_menu);
+        ListListner5 listner2=new ListListner5();
+        list1.setOnItemClickListener(listner2);
+        //합계 초기화
+        result_price=0;
+        m_name=new ArrayList<String>();
+        m_price=new ArrayList<String>();
+        m_name_p=new ArrayList<String>();
+        m_price_p=new ArrayList<String>();
+        data_list=new ArrayList<HashMap<String, Object>>();
+        //메뉴판 가져오기
+        InsertData4 insertData4=new InsertData4();
+        insertData4.execute(getString(R.string.IP_ADDRESS)+"get_designer_style_table.php");
+        Log.d("aa","asdf");
 
         //intent 가져오기
         Intent intent=getIntent();
@@ -74,8 +105,42 @@ public class ProfileActivity extends AppCompatActivity {
         //addNewItem("https://scontent-lga3-2.cdninstagram.com/v/t51.2885-15/sh0.08/e35/c240.0.960.960a/s640x640/96380058_1186616628346182_1112233204938198097_n.jpg?_nc_ht=scontent-lga3-2.cdninstagram.com&_nc_cat=106&_nc_ohc=ceBGoth1lvwAX-6vYlq&oh=cf5ed1265e208a93c6a3cb4645621b00&oe=5F86F130");
         //addNewItem("https://mblogthumb-phinf.pstatic.net/MjAyMDAxMThfNTEg/MDAxNTc5MzQxNzY2MjM4.zX1n8R67a8yHH7uJh3rDEjB6OuX7TCOpSCqcugfHpggg.5AHEjCl1Geq_v5G5icV4jSzjovbZC0exDaOf-pMiWkgg.GIF.jaepombo/1579341765098.gif?type=w800");
     }
+    //리스너 셋팅
+    class ListListner5 implements AdapterView.OnItemClickListener{
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Log.d("test@",i+"번째 메뉴 값: "+m_name.get(i)+"/"+m_price.get(i));
+
+            // view는 클릭한 Row의 view를 Object로 반환해 준다.
+            CheckBox cb = (CheckBox) view.findViewById(R.id.checkbox_menu);
+            if(cb.isChecked()==true){
+                cb.setChecked(false);
+                m_name_p.remove(m_name.get(i).toString());
+                m_price_p.remove(m_price.get(i).toString());
+                result_price-=Integer.parseInt(m_price.get(i));
+            }else{
+                cb.setChecked(true);
+                m_price_p.add(m_price.get(i).toString());
+                m_name_p.add(m_name.get(i).toString());
+                result_price+=Integer.parseInt(m_price.get(i));
+            }
+            Log.d("sum : ",""+result_price);
+
+        }
+    }
+
+    //리뷰버튼
+    public void reviewbtn(View v){
+        Intent intent=new Intent(getApplicationContext(),ReviewActivity.class);
+        intent.putExtra("ID",ID);
+        startActivity(intent);
+    }
     public void onReserveClick(View v){
         Intent  intent = new Intent(getApplicationContext(), ReserveActivity.class);
+        intent.putExtra("price",result_price);
+        intent.putExtra("listn",m_name_p);
+        intent.putExtra("listp",m_price_p);
         startActivity(intent);
     }
 
@@ -85,6 +150,123 @@ public class ProfileActivity extends AppCompatActivity {
         sliderItem.setImageUrl(url);
         adapter.addItem(sliderItem);
     }
+
+    // 리스트뷰 높이 자동설정
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            //listItem.measure(0, 0);
+            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight;
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+
+    }
+
+    //처음시작시 메뉴판 가져오는 코드
+    class InsertData4 extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("test!","please wait...\n");
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Log.d("aaa",s);
+            try {
+                JSONArray jsonArray=new JSONArray(s);
+                for(int i=0;i<jsonArray.length();i++){
+                    JSONObject jsonObject=jsonArray.getJSONObject(i);
+                    String n=jsonObject.getString("style");
+                    String p=jsonObject.getString("cost");
+                    m_name.add(n);
+                    m_price.add(p);
+                    Log.d("testarrayp",m_price.get(i));
+                    Log.d("testarrayn",m_name.get(i));
+                    //메뉴판 추가
+                    HashMap<String, Object> map = new HashMap<String, Object>();
+                    map.put("menu_name", n);
+                    map.put("menu_price", p);
+                    data_list.add(map);
+                    String[] keys = {"menu_name", "menu_price"};
+                    int[] ids = {R.id.menu_name, R.id.menu_price};
+                    SimpleAdapter adapter = new SimpleAdapter(getApplicationContext(), data_list, R.layout.menu_check, keys, ids);
+                    list1.setAdapter(adapter);
+                    setListViewHeightBasedOnChildren(list1);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Log.d("testmenu",s);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String result="";
+            String id=ID;
+            String serverurl = params[0];
+            String postparameters = "id="+ID;
+            Log.d("testinput",postparameters);
+            try{
+                URL url = new URL(serverurl);
+
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                conn.setConnectTimeout(5000);
+                conn.setUseCaches(false);
+                conn.setRequestMethod("POST");
+                conn.connect();
+
+                OutputStream outputstream = conn.getOutputStream();
+                outputstream.write(postparameters.getBytes("UTF-8"));
+                outputstream.flush();
+                outputstream.close();
+
+                InputStream inputstream;
+
+                if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
+                    inputstream = conn.getInputStream();
+                }else{
+                    inputstream = conn.getErrorStream();
+                }
+
+                InputStreamReader inputreader = new InputStreamReader(inputstream, "UTF-8");
+                BufferedReader bufferedreader = new BufferedReader(inputreader);
+
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                int a=1;
+                while((line = bufferedreader.readLine())!=null){
+                    sb.append(line);
+                    a++;
+                }
+
+                bufferedreader.close();
+                Log.d("testresultidcheck",sb.toString());
+                return sb.toString();
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+    }
+
     class InsertData3 extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {

@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +50,8 @@ public class ProfileUpdateActivity extends AppCompatActivity {
     //처음 db에서 받아올 메뉴들
     ArrayList<String> m_name;
     ArrayList<String> m_price;
+    //프로이미지뷰
+    ImageView image_profile;
     ArrayList<HashMap<String,Object>> data_list=new ArrayList<HashMap<String, Object>>();
     protected void onCreate(Bundle savedInstanceState) {
         //타이틀바 없애기
@@ -86,6 +91,10 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         InsertData4 insertData4=new InsertData4();
         insertData4.execute(getString(R.string.IP_ADDRESS)+"get_designer_style_table.php");
 
+        //
+        image_profile=(ImageView)findViewById(R.id.profile_image_5);
+        InsertData6 insertDate5=new InsertData6();
+        insertDate5.execute(getString(R.string.IP_ADDRESS)+"get_designer_image.php",ID);
 
     }
     //리스너 셋팅
@@ -499,6 +508,74 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            Log.d("testerase",s);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String result="";
+            String id=ID;
+            String serverurl = params[0];
+            String style = params[1];
+            String postparameters = "id="+ID+"&style="+style;
+            Log.d("testinputtt",postparameters);
+            try{
+                URL url = new URL(serverurl);
+
+                HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+                conn.setConnectTimeout(5000);
+                conn.setUseCaches(false);
+                conn.setRequestMethod("POST");
+                conn.connect();
+
+                OutputStream outputstream = conn.getOutputStream();
+                outputstream.write(postparameters.getBytes("UTF-8"));
+                outputstream.flush();
+                outputstream.close();
+
+                InputStream inputstream;
+
+                if(conn.getResponseCode()==HttpURLConnection.HTTP_OK){
+                    inputstream = conn.getInputStream();
+                }else{
+                    inputstream = conn.getErrorStream();
+                }
+
+                InputStreamReader inputreader = new InputStreamReader(inputstream, "UTF-8");
+                BufferedReader bufferedreader = new BufferedReader(inputreader);
+
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                int a=1;
+                while((line = bufferedreader.readLine())!=null){
+                    sb.append(line);
+                    a++;
+                }
+
+                bufferedreader.close();
+                Log.d("testresultidcheck",sb.toString());
+                return sb.toString();
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return result;
+        }
+    }
+    class InsertData6 extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("test!","please wait...\n");
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            String imageUrl = s;
+            Glide.with(getApplicationContext()).load("https://salonspace.s3.ap-northeast-2.amazonaws.com/" + imageUrl).error(R.drawable.profile_default).into(image_profile);
+
             Log.d("testerase",s);
         }
 

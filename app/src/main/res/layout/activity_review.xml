@@ -51,6 +51,7 @@
                 style="@style/TEXTVIEW_MEDIUM"
                 android:text="시술은 어떠셨나요?"/>
             <EditText
+                android:id="@+id/text_review"
                 android:gravity="top"
                 android:padding="24px"
                 android:layout_width="match_parent"
@@ -59,6 +60,7 @@
                 android:hint="첫 줄에는 리뷰 요약을 적어주세요!"
                 android:background="@drawable/orange_round_border" />
             <Button
+                android:id="@+id/review_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="8dp"
@@ -66,7 +68,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:background="@drawable/orange_back_round_border"
-                android:onClick="onReserveClick"
+                android:onClick="btn"
                 />
             <View
                 android:layout_marginTop="10dp"
@@ -82,14 +84,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 style="@style/TEXTVIEW_MEDIUM"
-                android:text="리뷰 (0)"/>
+                android:text="리뷰"/>
 <!--            리스트뷰 필요-->
-            <TextView
+            <ListView
+                android:id="@+id/review_list"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:gravity="center"
-                style="@style/TEXTVIEW_SMALL"
-                android:text="민도형 채워줘 리스트뷰"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 
