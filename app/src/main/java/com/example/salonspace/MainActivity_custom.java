@@ -69,7 +69,8 @@ public class MainActivity_custom extends AppCompatActivity {
                         transaction.replace(R.id.frameLayout, fragmentReserveUser).commitAllowingStateLoss();
                         break;
                     case R.id.Item4:
-                        transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
+
+//                        transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();
                         break;
                 }
                 return true;

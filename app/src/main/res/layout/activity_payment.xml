@@ -150,6 +150,7 @@
         android:layout_height="wrap_content"
         android:text="39,800원 결제하기"
         android:textColor="#ffffff"
+        android:onClick="gotoMain"
         android:background="@drawable/orange_back_round_border"
         android:layout_margin="20dp"
         />

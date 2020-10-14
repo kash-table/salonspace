@@ -92,7 +92,7 @@ public class MainActivity4Designer extends AppCompatActivity {
                         transaction.replace(R.id.frameLayout, fragmentMap).commitAllowingStateLoss();
                         break;
                     case R.id.Item3:
-                        transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
+                        // transaction.replace(R.id.frameLayout, fragmentDesigner).commitAllowingStateLoss();
                         break;
                     case R.id.Item4:
                         transaction.replace(R.id.frameLayout, fragmentMypage).commitAllowingStateLoss();

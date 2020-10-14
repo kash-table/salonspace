@@ -22,8 +22,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         SupportMapFragment supportMapFragment=(SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
         supportMapFragment.getMapAsync(this);
 
-
-
     }
     @Override
     public void onMapReady(final GoogleMap googlemap){

@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         //행 1개 이상이면 자동로그인
         if(total_count>=1){
+            Log.e("UserType", Usertype);
             if(Usertype.equals("0")) {
                 Intent intent=new Intent(getApplicationContext(),MainActivity_custom.class);
                 startActivity(intent);
@@ -145,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                 //값 가져오기
                 String name=ID.getText().toString();
                 String passwd=PW.getText().toString();
-                String usertype2="0";
+                String usertype2="1";
                 //쿼리문 작성
 
                 String sql = "insert into Login(ID,PW,UserType) values (?,?,?)";

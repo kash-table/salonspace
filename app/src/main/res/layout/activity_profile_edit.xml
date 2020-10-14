@@ -107,46 +107,46 @@
             </LinearLayout>
 
             <!--부가정보-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="부가 정보"
-                        android:gravity="center"
-                        style="@style/TEXTVIEW_MEDIUM"
-                        />
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent"/>
-                    <Button
-                        android:id="@+id/btn_set_info"
-                        android:layout_width="wrap_content"
-                        android:onClick="additionalinfo"
-                        android:layout_height="32dp"
-                        android:background="@drawable/orange_round_border"
-                        android:gravity="center"
-                        android:textColor="@color/colorAccent"
-                        style="@style/TEXTVIEW_SMALL"
-                        android:text="설정하기"
-                        />
-                </LinearLayout>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:id="@+id/addtional"
-                    android:layout_marginHorizontal="8dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/orange_round_border"/>
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:padding="12dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:gravity="center">-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:text="부가 정보"-->
+<!--                        android:gravity="center"-->
+<!--                        style="@style/TEXTVIEW_MEDIUM"-->
+<!--                        />-->
+<!--                    <View-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_height="match_parent"/>-->
+<!--                    <Button-->
+<!--                        android:id="@+id/btn_set_info"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:onClick="additionalinfo"-->
+<!--                        android:layout_height="32dp"-->
+<!--                        android:background="@drawable/orange_round_border"-->
+<!--                        android:gravity="center"-->
+<!--                        android:textColor="@color/colorAccent"-->
+<!--                        style="@style/TEXTVIEW_SMALL"-->
+<!--                        android:text="설정하기"-->
+<!--                        />-->
+<!--                </LinearLayout>-->
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:id="@+id/addtional"-->
+<!--                    android:layout_marginHorizontal="8dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:background="@drawable/orange_round_border"/>-->
+<!--            </LinearLayout>-->
             <!--시술 정보-->
             <LinearLayout
                 android:layout_width="match_parent"

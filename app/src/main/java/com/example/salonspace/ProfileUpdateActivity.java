@@ -158,7 +158,9 @@ public class ProfileUpdateActivity extends AppCompatActivity {
         intent.putExtra("data", "변경이 완료되었습니다.");
         startActivityForResult(intent, 1);
     }
-
+    public void additionalinfo(View v){
+        return;
+    }
     // 리스트뷰 높이 자동설정
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
